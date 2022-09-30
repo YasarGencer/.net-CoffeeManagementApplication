@@ -1,0 +1,10 @@
+D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagementSystem\CoffeeManagementSystem\bin\Debug\CoffeeManagementSystem.exe.config
+D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagementSystem\CoffeeManagementSystem\bin\Debug\CoffeeManagementSystem.exe
+D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagementSystem\CoffeeManagementSystem\bin\Debug\CoffeeManagementSystem.pdb
+D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagementSystem\CoffeeManagementSystem\obj\Debug\CoffeeManagementSystem.csproj.AssemblyReference.cache
+D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagementSystem\CoffeeManagementSystem\obj\Debug\CoffeeManagementSystem.Form1.resources
+D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagementSystem\CoffeeManagementSystem\obj\Debug\CoffeeManagementSystem.Properties.Resources.resources
+D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagementSystem\CoffeeManagementSystem\obj\Debug\CoffeeManagementSystem.csproj.GenerateResource.cache
+D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagementSystem\CoffeeManagementSystem\obj\Debug\CoffeeManagementSystem.csproj.CoreCompileInputs.cache
+D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagementSystem\CoffeeManagementSystem\obj\Debug\CoffeeManagementSystem.exe
+D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagementSystem\CoffeeManagementSystem\obj\Debug\CoffeeManagementSystem.pdb

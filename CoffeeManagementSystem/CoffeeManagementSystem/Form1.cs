@@ -19,7 +19,15 @@ namespace CoffeeManagementSystem
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            checkboxShowPassword_CheckedChanged(sender, e);
+        }
 
+        private void checkboxShowPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkboxShowPassword.Checked)
+                txtPassword.PasswordChar = '\0';
+            else
+                txtPassword.PasswordChar = '*';
         }
     }
 }
