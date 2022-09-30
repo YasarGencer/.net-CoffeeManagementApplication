@@ -29,5 +29,16 @@ namespace CoffeeManagementSystem
             else
                 txtPassword.PasswordChar = '*';
         }
+
+        private void bttnLogIn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void bttnSignIn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new SignInPage().Show();
+        }
     }
 }

@@ -89,6 +89,7 @@ namespace CoffeeManagementSystem
             this.bttnLogIn.TabIndex = 0;
             this.bttnLogIn.Text = "Log In";
             this.bttnLogIn.UseVisualStyleBackColor = true;
+            this.bttnLogIn.Click += new System.EventHandler(this.bttnLogIn_Click);
             // 
             // bttnSignIn
             // 
@@ -99,6 +100,7 @@ namespace CoffeeManagementSystem
             this.bttnSignIn.TabIndex = 1;
             this.bttnSignIn.Text = "Sign In";
             this.bttnSignIn.UseVisualStyleBackColor = true;
+            this.bttnSignIn.Click += new System.EventHandler(this.bttnSignIn_Click);
             // 
             // lblUsername
             // 

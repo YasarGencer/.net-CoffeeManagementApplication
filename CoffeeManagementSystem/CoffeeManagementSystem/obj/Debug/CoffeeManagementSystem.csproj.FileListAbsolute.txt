@@ -8,3 +8,4 @@ D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagementSystem\CoffeeMan
 D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagementSystem\CoffeeManagementSystem\obj\Debug\CoffeeManagementSystem.csproj.CoreCompileInputs.cache
 D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagementSystem\CoffeeManagementSystem\obj\Debug\CoffeeManagementSystem.exe
 D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagementSystem\CoffeeManagementSystem\obj\Debug\CoffeeManagementSystem.pdb
+D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagementSystem\CoffeeManagementSystem\obj\Debug\CoffeeManagementSystem.AdminLogIn.resources
