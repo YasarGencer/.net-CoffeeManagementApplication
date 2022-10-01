@@ -1,0 +1,11 @@
+C:\Users\gncry\source\repos\CoffeeManagement\CoffeeManagement\bin\Debug\CoffeeManagement.exe.config
+C:\Users\gncry\source\repos\CoffeeManagement\CoffeeManagement\bin\Debug\CoffeeManagement.exe
+C:\Users\gncry\source\repos\CoffeeManagement\CoffeeManagement\bin\Debug\CoffeeManagement.pdb
+C:\Users\gncry\source\repos\CoffeeManagement\CoffeeManagement\obj\Debug\CoffeeManagement.csproj.AssemblyReference.cache
+C:\Users\gncry\source\repos\CoffeeManagement\CoffeeManagement\obj\Debug\CoffeeManagement.Form1.resources
+C:\Users\gncry\source\repos\CoffeeManagement\CoffeeManagement\obj\Debug\CoffeeManagement.Properties.Resources.resources
+C:\Users\gncry\source\repos\CoffeeManagement\CoffeeManagement\obj\Debug\CoffeeManagement.SignInPage.resources
+C:\Users\gncry\source\repos\CoffeeManagement\CoffeeManagement\obj\Debug\CoffeeManagement.csproj.GenerateResource.cache
+C:\Users\gncry\source\repos\CoffeeManagement\CoffeeManagement\obj\Debug\CoffeeManagement.csproj.CoreCompileInputs.cache
+C:\Users\gncry\source\repos\CoffeeManagement\CoffeeManagement\obj\Debug\CoffeeManagement.exe
+C:\Users\gncry\source\repos\CoffeeManagement\CoffeeManagement\obj\Debug\CoffeeManagement.pdb
