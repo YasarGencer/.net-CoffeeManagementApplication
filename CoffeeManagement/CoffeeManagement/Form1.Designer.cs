@@ -1,7 +1,7 @@
 ﻿
 namespace CoffeeManagement
 {
-    partial class Form1
+    partial class LogIn
     {
         /// <summary>
         ///Gerekli tasarımcı değişkeni.
@@ -29,7 +29,7 @@ namespace CoffeeManagement
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogIn));
             this.lblSignInInfo = new System.Windows.Forms.Label();
             this.pictureLogo = new System.Windows.Forms.PictureBox();
             this.bttnSign = new System.Windows.Forms.Button();
@@ -129,6 +129,7 @@ namespace CoffeeManagement
             this.bttnLog.TabIndex = 4;
             this.bttnLog.Text = "Log in";
             this.bttnLog.UseVisualStyleBackColor = true;
+            this.bttnLog.Click += new System.EventHandler(this.bttnLog_Click);
             // 
             // lblPass
             // 
@@ -172,7 +173,7 @@ namespace CoffeeManagement
             this.txtUser.Size = new System.Drawing.Size(180, 20);
             this.txtUser.TabIndex = 0;
             // 
-            // Form1
+            // LogIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -182,9 +183,9 @@ namespace CoffeeManagement
             this.Controls.Add(this.bttnSign);
             this.Controls.Add(this.lblLogIn);
             this.Controls.Add(this.groupBox1);
-            this.Name = "Form1";
+            this.Name = "LogIn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "LogIn";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureLogo)).EndInit();
             this.groupBox1.ResumeLayout(false);

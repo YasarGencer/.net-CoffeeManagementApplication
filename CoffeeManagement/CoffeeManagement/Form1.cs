@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CoffeeManagement
 {
-    public partial class Form1 : Form
+    public partial class LogIn : Form
     {
-        public Form1()
+        public LogIn()
         {
             InitializeComponent();
         }
@@ -33,6 +33,12 @@ namespace CoffeeManagement
         private void bttnSign_Click(object sender, EventArgs e)
         {
             new SignInPage().Show();
+        }
+
+        private void bttnLog_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new AdminPage().Show();
         }
     }
 }

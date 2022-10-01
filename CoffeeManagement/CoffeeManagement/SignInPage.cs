@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace CoffeeManagement
 {
@@ -41,6 +42,15 @@ namespace CoffeeManagement
         }
         void SignIn()
         {
+            SqlConnection sc = new SqlConnection(@"Data Source=LAPTOP-AAAAAAAA;Initial Catalog=CoffeeManagement;Persist Security Info=True;User ID=sa;Password=123456");
+            SqlCommand sm = new SqlCommand("insert into UserInfo values('" + txtUser.Text + "','" + txtPass.Text + "')", sc);
+
+            sc.Open();
+
+            sm.ExecuteNonQuery();
+
+            sc.Close();
+
             MessageBox.Show("Sign In Successful");
             Hide();
         }
