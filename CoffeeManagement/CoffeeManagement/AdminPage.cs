@@ -18,12 +18,10 @@ namespace CoffeeManagement
         {
             InitializeComponent();
         }
-
         private void AdminPage_Load(object sender, EventArgs e)
         {
             PullData(); GetTableCount();
         }
-
         private void AdminPage_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
@@ -108,6 +106,35 @@ namespace CoffeeManagement
                         txtTableCount.Text = oReader["count"].ToString();
             }
             sc.Close();
+        }
+
+        public int id  = -1;
+        private void dgwItemTable_SelectionChanged(object sender, EventArgs e)
+        {
+            if(dgwItemTable.SelectedRows.Count > 0)
+            {
+                SqlConnection sc = new SqlConnection(@sctext);
+                id = int.Parse(dgwItemTable.SelectedRows[0].Cells[0].Value.ToString());
+                string query = "select * from ItemTable where itemId = @id";
+                SqlCommand sm = new SqlCommand(query, sc);
+                sm.Parameters.AddWithValue("@id", id);
+                sc.Open();
+                using (SqlDataReader oReader = sm.ExecuteReader())
+                    while (oReader.Read())
+                    {
+                        txtEditName.Text = oReader["itemName"].ToString();
+                        txtEditPrice.Text = oReader["itemPrice"].ToString();
+                    }
+                sc.Close();
+            }
+        }
+
+        private void bttnSaveEdit_Click(object sender, EventArgs e)
+        {
+            if (id != -1)
+            {
+                
+            }
         }
     }
     public class Item
