@@ -54,7 +54,7 @@ namespace CoffeeManagement
         public void PullData()
         {
             SqlConnection sc = new SqlConnection(@sctext);
-            string query = "select * from ItemTable";
+            string query = "select * from ItemTable order by itemId";
             sc.Open();
             SqlCommand sm = new SqlCommand(query, sc);
             SqlDataAdapter da = new SqlDataAdapter(sm);
@@ -133,7 +133,45 @@ namespace CoffeeManagement
         {
             if (id != -1)
             {
-                
+                SqlConnection sc = new SqlConnection(@sctext);
+                id = int.Parse(dgwItemTable.SelectedRows[0].Cells[0].Value.ToString());
+                string query = "update ItemTable set itemPrice = @price , itemName = @name where itemId = @id";
+                SqlCommand sm = new SqlCommand(query, sc);
+                sm.Parameters.AddWithValue("@id", id);
+                sm.Parameters.AddWithValue("@name", txtEditName.Text);
+                sm.Parameters.AddWithValue("@price", (float)int.Parse(txtEditPrice.Text));
+                sc.Open();
+                sm.ExecuteNonQuery();
+                sc.Close();
+                PullData();
+            }
+        }
+
+        private void bttnDeleteItem_Click(object sender, EventArgs e)
+        {
+            if (id != -1)
+            {
+                SqlConnection sc = new SqlConnection(@sctext);
+                id = int.Parse(dgwItemTable.SelectedRows[0].Cells[0].Value.ToString());
+                string query1 = "delete from ItemTable where itemId = @id";
+                string query2 = "update ItemTable set itemId = @id where itemId = @id1";
+                SqlCommand sm1 = new SqlCommand(query1, sc);
+                SqlCommand sm2 = new SqlCommand(query2, sc);
+                sm1.Parameters.AddWithValue("@id", id);
+                sc.Open();
+                sm1.ExecuteNonQuery();
+                for (int i = id; i < dgwItemTable.Rows.Count - 1; i++)
+                {
+                    Console.WriteLine("Convert   " + (i + 1) + "   to     " + i );
+                    sm2.Parameters.AddWithValue("@id", i);
+                    sm2.Parameters.AddWithValue("@id1", i + 1);
+                    sm2.ExecuteNonQuery();
+                    sm2.Parameters.RemoveAt("@id");
+                    sm2.Parameters.RemoveAt("@id1");
+                    
+                }
+                sc.Close();
+                PullData();
             }
         }
     }

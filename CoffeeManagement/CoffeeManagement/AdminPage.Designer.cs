@@ -64,6 +64,7 @@ namespace CoffeeManagement
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.bttnUserPage);
             this.panel1.Controls.Add(this.bttnTableCount);
             this.panel1.Controls.Add(this.bttnAdd);
@@ -84,7 +85,7 @@ namespace CoffeeManagement
             this.bttnUserPage.Location = new System.Drawing.Point(16, 359);
             this.bttnUserPage.Name = "bttnUserPage";
             this.bttnUserPage.Size = new System.Drawing.Size(181, 62);
-            this.bttnUserPage.TabIndex = 6;
+            this.bttnUserPage.TabIndex = 9;
             this.bttnUserPage.Text = "OPEN USER PAGE";
             this.bttnUserPage.UseVisualStyleBackColor = true;
             this.bttnUserPage.Click += new System.EventHandler(this.bttnUserPage_Click);
@@ -94,7 +95,7 @@ namespace CoffeeManagement
             this.bttnTableCount.Location = new System.Drawing.Point(16, 265);
             this.bttnTableCount.Name = "bttnTableCount";
             this.bttnTableCount.Size = new System.Drawing.Size(181, 62);
-            this.bttnTableCount.TabIndex = 6;
+            this.bttnTableCount.TabIndex = 4;
             this.bttnTableCount.Text = "SET";
             this.bttnTableCount.UseVisualStyleBackColor = true;
             this.bttnTableCount.Click += new System.EventHandler(this.bttnTableCount_Click);
@@ -104,7 +105,7 @@ namespace CoffeeManagement
             this.bttnAdd.Location = new System.Drawing.Point(16, 137);
             this.bttnAdd.Name = "bttnAdd";
             this.bttnAdd.Size = new System.Drawing.Size(181, 62);
-            this.bttnAdd.TabIndex = 6;
+            this.bttnAdd.TabIndex = 2;
             this.bttnAdd.Text = "ADD";
             this.bttnAdd.UseVisualStyleBackColor = true;
             this.bttnAdd.Click += new System.EventHandler(this.bttnAdd_Click);
@@ -114,7 +115,7 @@ namespace CoffeeManagement
             this.txtTableCount.Location = new System.Drawing.Point(16, 239);
             this.txtTableCount.Name = "txtTableCount";
             this.txtTableCount.Size = new System.Drawing.Size(181, 20);
-            this.txtTableCount.TabIndex = 5;
+            this.txtTableCount.TabIndex = 3;
             // 
             // lblTableCount
             // 
@@ -130,7 +131,7 @@ namespace CoffeeManagement
             this.txtPrice.Location = new System.Drawing.Point(16, 111);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(181, 20);
-            this.txtPrice.TabIndex = 5;
+            this.txtPrice.TabIndex = 1;
             // 
             // lblPrice
             // 
@@ -146,7 +147,7 @@ namespace CoffeeManagement
             this.txtName.Location = new System.Drawing.Point(16, 68);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(181, 20);
-            this.txtName.TabIndex = 5;
+            this.txtName.TabIndex = 0;
             // 
             // lblName
             // 
@@ -203,12 +204,13 @@ namespace CoffeeManagement
             this.dgwItemTable.ReadOnly = true;
             this.dgwItemTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgwItemTable.Size = new System.Drawing.Size(343, 318);
-            this.dgwItemTable.TabIndex = 3;
+            this.dgwItemTable.TabIndex = 10;
             this.dgwItemTable.SelectionChanged += new System.EventHandler(this.dgwItemTable_SelectionChanged);
             // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.bttnSaveEdit);
             this.panel2.Controls.Add(this.bttnDeleteItem);
             this.panel2.Controls.Add(this.txtEditPrice);
@@ -226,7 +228,7 @@ namespace CoffeeManagement
             this.bttnSaveEdit.Location = new System.Drawing.Point(226, 35);
             this.bttnSaveEdit.Name = "bttnSaveEdit";
             this.bttnSaveEdit.Size = new System.Drawing.Size(100, 23);
-            this.bttnSaveEdit.TabIndex = 3;
+            this.bttnSaveEdit.TabIndex = 7;
             this.bttnSaveEdit.Text = "Save";
             this.bttnSaveEdit.UseVisualStyleBackColor = true;
             this.bttnSaveEdit.Click += new System.EventHandler(this.bttnSaveEdit_Click);
@@ -236,16 +238,17 @@ namespace CoffeeManagement
             this.bttnDeleteItem.Location = new System.Drawing.Point(179, 75);
             this.bttnDeleteItem.Name = "bttnDeleteItem";
             this.bttnDeleteItem.Size = new System.Drawing.Size(147, 23);
-            this.bttnDeleteItem.TabIndex = 3;
+            this.bttnDeleteItem.TabIndex = 8;
             this.bttnDeleteItem.Text = "Delete Item";
             this.bttnDeleteItem.UseVisualStyleBackColor = true;
+            this.bttnDeleteItem.Click += new System.EventHandler(this.bttnDeleteItem_Click);
             // 
             // txtEditPrice
             // 
             this.txtEditPrice.Location = new System.Drawing.Point(7, 77);
             this.txtEditPrice.Name = "txtEditPrice";
             this.txtEditPrice.Size = new System.Drawing.Size(166, 20);
-            this.txtEditPrice.TabIndex = 2;
+            this.txtEditPrice.TabIndex = 6;
             // 
             // lblEditPrice
             // 
@@ -261,7 +264,7 @@ namespace CoffeeManagement
             this.txtEditName.Location = new System.Drawing.Point(7, 38);
             this.txtEditName.Name = "txtEditName";
             this.txtEditName.Size = new System.Drawing.Size(213, 20);
-            this.txtEditName.TabIndex = 2;
+            this.txtEditName.TabIndex = 5;
             // 
             // lblEditName
             // 
