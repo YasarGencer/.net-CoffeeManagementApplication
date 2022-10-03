@@ -31,8 +31,7 @@ namespace CoffeeManagement
         {
             this.dgwItemTable = new System.Windows.Forms.DataGridView();
             this.dgwTableTable = new System.Windows.Forms.DataGridView();
-            this.Columns = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgwTableContent = new System.Windows.Forms.DataGridView();
+            this.dgwContentTable = new System.Windows.Forms.DataGridView();
             this.itemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,9 +43,10 @@ namespace CoffeeManagement
             this.lblCount = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
+            this.Tables = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgwItemTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgwTableTable)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgwTableContent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwContentTable)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -77,7 +77,7 @@ namespace CoffeeManagement
             this.dgwTableTable.AllowUserToResizeRows = false;
             this.dgwTableTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgwTableTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Columns});
+            this.Tables});
             this.dgwTableTable.Location = new System.Drawing.Point(374, 12);
             this.dgwTableTable.MultiSelect = false;
             this.dgwTableTable.Name = "dgwTableTable";
@@ -88,26 +88,26 @@ namespace CoffeeManagement
             this.dgwTableTable.TabIndex = 11;
             this.dgwTableTable.SelectionChanged += new System.EventHandler(this.dgwTableTable_SelectionChanged);
             // 
-            // Columns
+            // dgwContentTable
             // 
-            this.Columns.FillWeight = 10000F;
-            this.Columns.HeaderText = "Tables";
-            this.Columns.Name = "Columns";
-            this.Columns.ReadOnly = true;
-            this.Columns.Width = 50;
-            // 
-            // dgwTableContent
-            // 
-            this.dgwTableContent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgwTableContent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwTableContent.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgwContentTable.AllowDrop = true;
+            this.dgwContentTable.AllowUserToAddRows = false;
+            this.dgwContentTable.AllowUserToDeleteRows = false;
+            this.dgwContentTable.AllowUserToResizeColumns = false;
+            this.dgwContentTable.AllowUserToResizeRows = false;
+            this.dgwContentTable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgwContentTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgwContentTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.itemName,
             this.itemPrice,
             this.itemCount});
-            this.dgwTableContent.Location = new System.Drawing.Point(502, 12);
-            this.dgwTableContent.Name = "dgwTableContent";
-            this.dgwTableContent.Size = new System.Drawing.Size(347, 327);
-            this.dgwTableContent.TabIndex = 12;
+            this.dgwContentTable.Location = new System.Drawing.Point(502, 12);
+            this.dgwContentTable.MultiSelect = false;
+            this.dgwContentTable.Name = "dgwContentTable";
+            this.dgwContentTable.ReadOnly = true;
+            this.dgwContentTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgwContentTable.Size = new System.Drawing.Size(347, 327);
+            this.dgwContentTable.TabIndex = 12;
             // 
             // itemName
             // 
@@ -201,21 +201,31 @@ namespace CoffeeManagement
             this.lblName.TabIndex = 0;
             this.lblName.Text = "ITEM NAME";
             // 
+            // Tables
+            // 
+            this.Tables.FillWeight = 10000F;
+            this.Tables.HeaderText = "Tables";
+            this.Tables.Name = "Tables";
+            this.Tables.ReadOnly = true;
+            this.Tables.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Tables.Width = 50;
+            // 
             // UserPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(859, 605);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.dgwTableContent);
+            this.Controls.Add(this.dgwContentTable);
             this.Controls.Add(this.dgwItemTable);
             this.Controls.Add(this.dgwTableTable);
             this.Name = "UserPage";
             this.Text = "UserPage";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.UserPage_FormClosed);
             this.Load += new System.EventHandler(this.UserPage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgwItemTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgwTableTable)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgwTableContent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwContentTable)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -227,8 +237,7 @@ namespace CoffeeManagement
 
         private System.Windows.Forms.DataGridView dgwItemTable;
         private System.Windows.Forms.DataGridView dgwTableTable;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Columns;
-        private System.Windows.Forms.DataGridView dgwTableContent;
+        private System.Windows.Forms.DataGridView dgwContentTable;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtCount;
@@ -240,5 +249,6 @@ namespace CoffeeManagement
         private System.Windows.Forms.DataGridViewTextBoxColumn itemName;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tables;
     }
 }
