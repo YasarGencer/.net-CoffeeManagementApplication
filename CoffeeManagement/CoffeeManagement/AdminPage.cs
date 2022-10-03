@@ -13,7 +13,7 @@ namespace CoffeeManagement
 {
     public partial class AdminPage : Form
     {
-        public string sctext = "Data Source=LAPTOP-AAAAAAAA;Initial Catalog=CoffeeManagement;Persist Security Info=True;User ID=sa;Password=123456";
+        public static string sctext = "Data Source=LAPTOP-AAAAAAAA;Initial Catalog=CoffeeManagement;Persist Security Info=True;User ID=sa;Password=123456";
         public AdminPage()
         {
             InitializeComponent();

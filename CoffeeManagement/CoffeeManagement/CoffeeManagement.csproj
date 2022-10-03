@@ -95,6 +95,9 @@
     <EmbeddedResource Include="SignInPage.resx">
       <DependentUpon>SignInPage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserPage.resx">
+      <DependentUpon>UserPage.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="CoffeeManagementItemSet.xsc">
       <DependentUpon>CoffeeManagementItemSet.xsd</DependentUpon>
     </None>

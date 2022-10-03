@@ -21,3 +21,4 @@ D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagement\CoffeeManagemen
 D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagement\CoffeeManagement\obj\Debug\CoffeeManagement.exe
 D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagement\CoffeeManagement\obj\Debug\CoffeeManagement.pdb
 D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagement\CoffeeManagement\obj\Debug\CoffeeManagement.LogIn.resources
+D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagement\CoffeeManagement\obj\Debug\CoffeeManagement.UserPage.resources
