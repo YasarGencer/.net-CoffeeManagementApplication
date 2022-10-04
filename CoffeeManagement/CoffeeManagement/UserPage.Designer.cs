@@ -31,10 +31,8 @@ namespace CoffeeManagement
         {
             this.dgwItemTable = new System.Windows.Forms.DataGridView();
             this.dgwTableTable = new System.Windows.Forms.DataGridView();
+            this.Tables = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgwContentTable = new System.Windows.Forms.DataGridView();
-            this.itemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.bttnRemove = new System.Windows.Forms.Button();
@@ -43,7 +41,6 @@ namespace CoffeeManagement
             this.lblCount = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
-            this.Tables = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgwItemTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgwTableTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgwContentTable)).BeginInit();
@@ -88,6 +85,15 @@ namespace CoffeeManagement
             this.dgwTableTable.TabIndex = 11;
             this.dgwTableTable.SelectionChanged += new System.EventHandler(this.dgwTableTable_SelectionChanged);
             // 
+            // Tables
+            // 
+            this.Tables.FillWeight = 10000F;
+            this.Tables.HeaderText = "Tables";
+            this.Tables.Name = "Tables";
+            this.Tables.ReadOnly = true;
+            this.Tables.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Tables.Width = 50;
+            // 
             // dgwContentTable
             // 
             this.dgwContentTable.AllowDrop = true;
@@ -97,10 +103,6 @@ namespace CoffeeManagement
             this.dgwContentTable.AllowUserToResizeRows = false;
             this.dgwContentTable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.dgwContentTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwContentTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.itemName,
-            this.itemPrice,
-            this.itemCount});
             this.dgwContentTable.Location = new System.Drawing.Point(502, 12);
             this.dgwContentTable.MultiSelect = false;
             this.dgwContentTable.Name = "dgwContentTable";
@@ -108,21 +110,6 @@ namespace CoffeeManagement
             this.dgwContentTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgwContentTable.Size = new System.Drawing.Size(347, 327);
             this.dgwContentTable.TabIndex = 12;
-            // 
-            // itemName
-            // 
-            this.itemName.HeaderText = "Item Name";
-            this.itemName.Name = "itemName";
-            // 
-            // itemPrice
-            // 
-            this.itemPrice.HeaderText = "Item Price";
-            this.itemPrice.Name = "itemPrice";
-            // 
-            // itemCount
-            // 
-            this.itemCount.HeaderText = "Item Count";
-            this.itemCount.Name = "itemCount";
             // 
             // panel2
             // 
@@ -157,6 +144,7 @@ namespace CoffeeManagement
             this.bttnRemove.TabIndex = 2;
             this.bttnRemove.Text = "REMOVE";
             this.bttnRemove.UseVisualStyleBackColor = true;
+            this.bttnRemove.Click += new System.EventHandler(this.bttnRemove_Click);
             // 
             // bttnAdd
             // 
@@ -201,15 +189,6 @@ namespace CoffeeManagement
             this.lblName.TabIndex = 0;
             this.lblName.Text = "ITEM NAME";
             // 
-            // Tables
-            // 
-            this.Tables.FillWeight = 10000F;
-            this.Tables.HeaderText = "Tables";
-            this.Tables.Name = "Tables";
-            this.Tables.ReadOnly = true;
-            this.Tables.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Tables.Width = 50;
-            // 
             // UserPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -246,9 +225,6 @@ namespace CoffeeManagement
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button bttnAdd;
         private System.Windows.Forms.Button bttnRemove;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemCount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tables;
     }
 }

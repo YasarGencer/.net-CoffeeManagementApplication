@@ -21,6 +21,7 @@ namespace CoffeeManagement
         {
             PullDataItem();
             PullDataTable();
+            txtCount.Text = "1";
         }
         private void UserPage_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -49,7 +50,7 @@ namespace CoffeeManagement
             using (SqlDataReader oReader = sm.ExecuteReader())
                 while (oReader.Read())
                     tableCount = int.Parse(oReader["count"].ToString());
-            for (int i = 1; i <= tableCount; i++) 
+            for (int i = 1; i <= tableCount; i++)
             {
                 var index = dgwTableTable.Rows.Add();
                 dgwTableTable.Rows[index].Cells[0].Value = i;
@@ -70,7 +71,7 @@ namespace CoffeeManagement
         }
         #endregion
         int itemId = -1, tableId = -1;
-        int itemPriceTemp = 0;
+        Content chosenContent = new Content();
         private void dgwItemTable_SelectionChanged(object sender, EventArgs e)
         {
             if (dgwItemTable.SelectedRows.Count > 0)
@@ -84,8 +85,9 @@ namespace CoffeeManagement
                 using (SqlDataReader oReader = sm.ExecuteReader())
                     while (oReader.Read())
                     {
-                        txtName.Text = oReader["itemName"].ToString();
-                        itemPriceTemp = int.Parse(oReader["itemPrice"].ToString());
+                        chosenContent.name = oReader["itemName"].ToString();
+                        chosenContent.price = int.Parse(oReader["itemPrice"].ToString());
+                        txtName.Text = chosenContent.name;
                     }
                 sc.Close();
             }
@@ -101,41 +103,47 @@ namespace CoffeeManagement
                 string tableName = "table" + tableId;
                 string query1 = "IF object_id('" + tableName + "') is null CREATE TABLE " + tableName + " (itemName varchar(50),itemPrice float, itemCount int);";
                 SqlCommand sm1 = new SqlCommand(query1, sc);
-                sc.Open();
-                sm1.ExecuteNonQuery(); 
-                sc.Close();
+                sc.Open(); sm1.ExecuteNonQuery(); sc.Close();
                 PullDataContent();
             }
 
+        }
+        private void bttnRemove_Click(object sender, EventArgs e)
+        {
+            SqlConnection sc = new SqlConnection(AdminPage.sctext);
+            string name = dgwContentTable.SelectedRows[0].Cells[0].Value.ToString();
+            string query1 = "DELETE FROM table" + tableId + " WHERE itemName = @name";
+            SqlCommand sm1 = new SqlCommand(query1, sc);
+            sm1.Parameters.AddWithValue("@name", name);
+            sc.Open();
+            sm1.ExecuteNonQuery();
+            sc.Close();
+            PullDataContent();
         }
         private void bttnAdd_Click(object sender, EventArgs e)
         {
             if (tableId != -1 && itemId != -1)
             {
                 string tableName = "table" + tableId;
-                int currentCount = 0;
-                SqlConnection sc = new SqlConnection(AdminPage.sctext);
-                using (sc)
-                {
-                    string query = "Select * from " + tableName + " where itemName=" + txtName.Text;
-                    SqlCommand sm = new SqlCommand(query, sc);
-                    sc.Open();
-                    using (SqlDataReader smReader = sm.ExecuteReader())
-                        while (smReader.Read())
-                        {
-                            currentCount = int.Parse(smReader["itemCount"].ToString());
-                        }
-                    string query2;
-                    if (currentCount == 0)
-                        query2 = "insert into " + tableName + " values('" + (txtName.Text) + "','" + itemPriceTemp + "','" + int.Parse(txtCount.Text) + "')";
-                    else
-                        query2 ="update " + tableName + " set itemCount = " + (currentCount + int.Parse(txtCount.Text)) + " where itemName=" + txtName.Text;
-
-                    sm.ExecuteNonQuery();
-                    PullDataContent();
-                }
-                sc.Close();
+                Content content = new Content();
+                content.name = "";
+                SqlConnection sc = new SqlConnection(AdminPage.sctext); ;
+                string query2 = "UPDATE " + tableName + " SET itemCount = @count WHERE itemName = @name";
+                string query3 = "INSERT INTO " + tableName + " VALUES('" + (chosenContent.name) + "','" + chosenContent.price + "','" + int.Parse(txtCount.Text) + "')";
+                string query4 = "(SELECT * FROM " + tableName + " WHERE itemName = @name) ";
+                string query = " IF EXISTS" + query4 + query2 + " ELSE " + query3;
+                SqlCommand sm = new SqlCommand(query, sc);
+                sm.Parameters.AddWithValue("@name", txtName.Text);
+                sm.Parameters.AddWithValue("@count", txtCount.Text);
+                sc.Open(); sm.ExecuteNonQuery(); sc.Close();
+                PullDataContent();
             }
         }
+    }
+    public class Content
+    {
+        public String name;
+        public float price;
+        public int count;
     }
 }
