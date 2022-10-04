@@ -68,6 +68,14 @@ namespace CoffeeManagement
             da.Fill(dt);
             dgwContentTable.DataSource = dt;
             sc.Close();
+            PullPrice();
+        }
+        public void PullPrice()
+        {
+            int price = 0;
+            for (int i = 0; i < dgwContentTable.Rows.Count; i++)
+                price += int.Parse(dgwContentTable.Rows[i].Cells[1].Value.ToString()) * int.Parse(dgwContentTable.Rows[i].Cells[2].Value.ToString());
+            txtBill.Text = price.ToString();
         }
         #endregion
         int itemId = -1, tableId = -1;
@@ -96,7 +104,6 @@ namespace CoffeeManagement
         {
             if (dgwTableTable.SelectedRows.Count > 0)
                 tableId = int.Parse(dgwTableTable.SelectedRows[0].Index.ToString()) + 1;
-
             if (itemId != -1 && tableId != -1)
             {
                 SqlConnection sc = new SqlConnection(AdminPage.sctext);
@@ -104,10 +111,10 @@ namespace CoffeeManagement
                 string query1 = "IF object_id('" + tableName + "') is null CREATE TABLE " + tableName + " (itemName varchar(50),itemPrice float, itemCount int);";
                 SqlCommand sm1 = new SqlCommand(query1, sc);
                 sc.Open(); sm1.ExecuteNonQuery(); sc.Close();
-                PullDataContent();
             }
-
+            PullDataContent();
         }
+
         private void bttnRemove_Click(object sender, EventArgs e)
         {
             SqlConnection sc = new SqlConnection(AdminPage.sctext);
