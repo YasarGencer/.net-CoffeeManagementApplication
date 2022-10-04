@@ -127,6 +127,18 @@ namespace CoffeeManagement
             sc.Close();
             PullDataContent();
         }
+
+        private void bttnPay_Click(object sender, EventArgs e)
+        {
+            SqlConnection sc = new SqlConnection(AdminPage.sctext);
+            string query1 = "DELETE FROM table" + tableId;
+            SqlCommand sm1 = new SqlCommand(query1, sc);
+            sc.Open();
+            sm1.ExecuteNonQuery();
+            sc.Close();
+            PullDataContent();
+        }
+
         private void bttnAdd_Click(object sender, EventArgs e)
         {
             if (tableId != -1 && itemId != -1)
