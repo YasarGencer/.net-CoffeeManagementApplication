@@ -41,11 +41,16 @@ namespace CoffeeManagement
             this.lblCount = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.bttnPay = new System.Windows.Forms.Button();
+            this.txtBill = new System.Windows.Forms.TextBox();
+            this.lblBillInfo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgwItemTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgwTableTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgwContentTable)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgwItemTable
@@ -108,17 +113,18 @@ namespace CoffeeManagement
             this.dgwContentTable.Name = "dgwContentTable";
             this.dgwContentTable.ReadOnly = true;
             this.dgwContentTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgwContentTable.Size = new System.Drawing.Size(347, 327);
+            this.dgwContentTable.Size = new System.Drawing.Size(347, 387);
             this.dgwContentTable.TabIndex = 12;
             // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.panel1);
-            this.panel2.Location = new System.Drawing.Point(502, 345);
+            this.panel2.Location = new System.Drawing.Point(502, 405);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(347, 248);
+            this.panel2.Size = new System.Drawing.Size(347, 188);
             this.panel2.TabIndex = 13;
             // 
             // panel1
@@ -189,6 +195,45 @@ namespace CoffeeManagement
             this.lblName.TabIndex = 0;
             this.lblName.Text = "ITEM NAME";
             // 
+            // panel3
+            // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.bttnPay);
+            this.panel3.Controls.Add(this.txtBill);
+            this.panel3.Controls.Add(this.lblBillInfo);
+            this.panel3.Location = new System.Drawing.Point(3, 103);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(330, 80);
+            this.panel3.TabIndex = 13;
+            // 
+            // bttnPay
+            // 
+            this.bttnPay.Location = new System.Drawing.Point(6, 53);
+            this.bttnPay.Name = "bttnPay";
+            this.bttnPay.Size = new System.Drawing.Size(316, 23);
+            this.bttnPay.TabIndex = 2;
+            this.bttnPay.Text = "PAY";
+            this.bttnPay.UseVisualStyleBackColor = true;
+            this.bttnPay.Click += new System.EventHandler(this.bttnRemove_Click);
+            // 
+            // txtBill
+            // 
+            this.txtBill.Enabled = false;
+            this.txtBill.Location = new System.Drawing.Point(6, 27);
+            this.txtBill.Name = "txtBill";
+            this.txtBill.Size = new System.Drawing.Size(319, 20);
+            this.txtBill.TabIndex = 15;
+            // 
+            // lblBillInfo
+            // 
+            this.lblBillInfo.AutoSize = true;
+            this.lblBillInfo.Location = new System.Drawing.Point(120, 11);
+            this.lblBillInfo.Name = "lblBillInfo";
+            this.lblBillInfo.Size = new System.Drawing.Size(99, 13);
+            this.lblBillInfo.TabIndex = 0;
+            this.lblBillInfo.Text = "MAKE PAYEMENT";
+            // 
             // UserPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -208,6 +253,8 @@ namespace CoffeeManagement
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -226,5 +273,9 @@ namespace CoffeeManagement
         private System.Windows.Forms.Button bttnAdd;
         private System.Windows.Forms.Button bttnRemove;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tables;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button bttnPay;
+        private System.Windows.Forms.TextBox txtBill;
+        private System.Windows.Forms.Label lblBillInfo;
     }
 }
