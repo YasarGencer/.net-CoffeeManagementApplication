@@ -66,7 +66,7 @@ namespace CoffeeManagement
             this.dgwItemTable.Name = "dgwItemTable";
             this.dgwItemTable.ReadOnly = true;
             this.dgwItemTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgwItemTable.Size = new System.Drawing.Size(356, 581);
+            this.dgwItemTable.Size = new System.Drawing.Size(356, 711);
             this.dgwItemTable.TabIndex = 11;
             this.dgwItemTable.SelectionChanged += new System.EventHandler(this.dgwItemTable_SelectionChanged);
             // 
@@ -80,13 +80,13 @@ namespace CoffeeManagement
             this.dgwTableTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgwTableTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Tables});
-            this.dgwTableTable.Location = new System.Drawing.Point(374, 12);
+            this.dgwTableTable.Location = new System.Drawing.Point(393, 12);
             this.dgwTableTable.MultiSelect = false;
             this.dgwTableTable.Name = "dgwTableTable";
             this.dgwTableTable.ReadOnly = true;
             this.dgwTableTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgwTableTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgwTableTable.Size = new System.Drawing.Size(122, 581);
+            this.dgwTableTable.Size = new System.Drawing.Size(122, 711);
             this.dgwTableTable.TabIndex = 11;
             this.dgwTableTable.SelectionChanged += new System.EventHandler(this.dgwTableTable_SelectionChanged);
             // 
@@ -108,12 +108,12 @@ namespace CoffeeManagement
             this.dgwContentTable.AllowUserToResizeRows = false;
             this.dgwContentTable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.dgwContentTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwContentTable.Location = new System.Drawing.Point(502, 12);
+            this.dgwContentTable.Location = new System.Drawing.Point(552, 12);
             this.dgwContentTable.MultiSelect = false;
             this.dgwContentTable.Name = "dgwContentTable";
             this.dgwContentTable.ReadOnly = true;
             this.dgwContentTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgwContentTable.Size = new System.Drawing.Size(347, 387);
+            this.dgwContentTable.Size = new System.Drawing.Size(347, 517);
             this.dgwContentTable.TabIndex = 12;
             // 
             // panel2
@@ -122,7 +122,7 @@ namespace CoffeeManagement
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.panel1);
-            this.panel2.Location = new System.Drawing.Point(502, 405);
+            this.panel2.Location = new System.Drawing.Point(552, 535);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(347, 188);
             this.panel2.TabIndex = 13;
@@ -238,7 +238,7 @@ namespace CoffeeManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(859, 605);
+            this.ClientSize = new System.Drawing.Size(1352, 729);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.dgwContentTable);
             this.Controls.Add(this.dgwItemTable);
