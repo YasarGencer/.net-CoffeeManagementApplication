@@ -206,11 +206,13 @@ namespace CoffeeManagement
             sc.Open();
             sm1.ExecuteNonQuery();
             sc.Close();
+            SaveInfo(int.Parse(txtBillAll.Text));
             PullDataContent();
         }
         private void bttnPay_Click(object sender, EventArgs e)
         {
             dgwPayementTable.Rows.Clear();
+            SaveInfo(int.Parse(txtBill.Text));
             PullPrice();
         }
         private void bttnAdd_Click(object sender, EventArgs e)
@@ -229,6 +231,20 @@ namespace CoffeeManagement
                 sc.Open(); sm.ExecuteNonQuery(); sc.Close();
                 PullDataContent();
             }
+        }
+        private void SaveInfo(float value)
+        {
+            SqlConnection sc = new SqlConnection(AdminPage.sctext);
+            string date = DateTime.Today.ToString().Split(' ')[0];
+            string query2 = "UPDATE SaleInfo SET TotalSale += @sale  WHERE Date = @date ";
+            string query3 = "INSERT INTO SaleInfo VALUES('" + value + "','" + date + "' ) ";
+            string query4 = "(SELECT * FROM SaleInfo WHERE Date = @date ) ";
+            string query = " IF EXISTS" + query4 + query2 + " ELSE " + query3;
+            SqlCommand sm = new SqlCommand(query, sc);
+            sm.Parameters.AddWithValue("@date", date);
+            sm.Parameters.AddWithValue("@sale", value);
+            sc.Open(); sm.ExecuteNonQuery(); sc.Close();
+            PullDataContent();
         }
     }
     public class Content
