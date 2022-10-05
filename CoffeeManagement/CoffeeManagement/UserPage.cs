@@ -27,7 +27,7 @@ namespace CoffeeManagement
         {
             Application.Exit();
         }
-        #region Pull Data
+        #region PULL DATA
         public void PullDataItem()
         {
             SqlConnection sc = new SqlConnection(AdminPage.sctext);
@@ -78,6 +78,7 @@ namespace CoffeeManagement
             txtBill.Text = price.ToString();
         }
         #endregion
+        #region SELECTION CHANGED
         int itemId = -1, tableId = -1;
         Content chosenContent = new Content();
         private void dgwItemTable_SelectionChanged(object sender, EventArgs e)
@@ -114,20 +115,27 @@ namespace CoffeeManagement
             }
             PullDataContent();
         }
-
+        private void dgwContentTable_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgwContentTable.SelectedRows.Count > 0)
+                txtName2.Text = dgwContentTable.SelectedRows[0].Cells[0].Value.ToString();
+        }
+        #endregion
         private void bttnRemove_Click(object sender, EventArgs e)
         {
-            SqlConnection sc = new SqlConnection(AdminPage.sctext);
-            string name = dgwContentTable.SelectedRows[0].Cells[0].Value.ToString();
-            string query1 = "DELETE FROM table" + tableId + " WHERE itemName = @name";
-            SqlCommand sm1 = new SqlCommand(query1, sc);
-            sm1.Parameters.AddWithValue("@name", name);
-            sc.Open();
-            sm1.ExecuteNonQuery();
-            sc.Close();
-            PullDataContent();
+            if(dgwContentTable.SelectedRows.Count > 0)
+            {
+                SqlConnection sc = new SqlConnection(AdminPage.sctext);
+                string name = dgwContentTable.SelectedRows[0].Cells[0].Value.ToString();
+                string query1 = "DELETE FROM table" + tableId + " WHERE itemName = @name";
+                SqlCommand sm1 = new SqlCommand(query1, sc);
+                sm1.Parameters.AddWithValue("@name", name);
+                sc.Open();
+                sm1.ExecuteNonQuery();
+                sc.Close();
+                PullDataContent();
+            }
         }
-
         private void bttnPay_Click(object sender, EventArgs e)
         {
             SqlConnection sc = new SqlConnection(AdminPage.sctext);
@@ -138,7 +146,43 @@ namespace CoffeeManagement
             sc.Close();
             PullDataContent();
         }
+        private void bttnTransfer_Click(object sender, EventArgs e)
+        {
+            string tableName = "table" + tableId;
+            Content content = new Content();
+            content.name = "";
+            SqlConnection sc = new SqlConnection(AdminPage.sctext);
+            string query = "SELECT * FROM " + tableName + " WHERE itemName = @name";
+            string query2 = "UPDATE " + tableName + " SET itemCount -= 1 WHERE itemName = @name";
+            SqlCommand sm = new SqlCommand(query, sc);
+            SqlCommand sm2 = new SqlCommand(query2, sc);
+            sm.Parameters.AddWithValue("@name", txtName2.Text);
+            sm2.Parameters.AddWithValue("@name", txtName2.Text);
+            sc.Open();
+            using (SqlDataReader smReader = sm.ExecuteReader())
+                while (smReader.Read())
+                {
+                    content.name = smReader["itemName"].ToString();
+                    content.price = int.Parse(smReader["itemPrice"].ToString());
+                }
+            sm2.ExecuteNonQuery();
+            sc.Close();
+            PullDataContent();
+            for (int i = 0; i < dgwContentTable.RowCount; i++)
+                if (int.Parse(dgwContentTable.Rows[i].Cells[2].Value.ToString()) <= 0)
+                    bttnRemove_Click(sender, e);
+            bool contentWriten = false;
+            for (int i = 0; i < dgwPayementTable.RowCount; i++)
+                if(content.name == dgwPayementTable.Rows[i].Cells[0].Value.ToString())
+                {
+                    dgwPayementTable.Rows[i].Cells[2].Value = (1 + int.Parse(dgwPayementTable.Rows[i].Cells[2].Value.ToString()));
+                    contentWriten = true;
+                    break;
+                }
+            if (!contentWriten && dgwContentTable.RowCount > 0)
+                dgwPayementTable.Rows.Add(content.name,content.price,5);
 
+        }
         private void bttnAdd_Click(object sender, EventArgs e)
         {
             if (tableId != -1 && itemId != -1)
@@ -147,7 +191,7 @@ namespace CoffeeManagement
                 Content content = new Content();
                 content.name = "";
                 SqlConnection sc = new SqlConnection(AdminPage.sctext); ;
-                string query2 = "UPDATE " + tableName + " SET itemCount = @count WHERE itemName = @name";
+                string query2 = "UPDATE " + tableName + " SET itemCount += @count WHERE itemName = @name";
                 string query3 = "INSERT INTO " + tableName + " VALUES('" + (chosenContent.name) + "','" + chosenContent.price + "','" + int.Parse(txtCount.Text) + "')";
                 string query4 = "(SELECT * FROM " + tableName + " WHERE itemName = @name) ";
                 string query = " IF EXISTS" + query4 + query2 + " ELSE " + query3;
