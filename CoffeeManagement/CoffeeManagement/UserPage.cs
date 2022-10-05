@@ -161,7 +161,6 @@ namespace CoffeeManagement
                 }
             sm2.ExecuteNonQuery();
             sc.Close();
-            PullDataContent();
             for (int i = 0; i < dgwContentTable.RowCount; i++)
                 if (int.Parse(dgwContentTable.Rows[i].Cells[2].Value.ToString()) <= 0)
                     bttnRemove_Click(sender, e);
@@ -175,7 +174,10 @@ namespace CoffeeManagement
                 }
             if (!contentWriten && dgwContentTable.RowCount > 0)
                 dgwPayementTable.Rows.Add(content.name,content.price,1);
-
+            dgwContentTable.SelectedRows[0].Cells[2].Value = (int.Parse(dgwContentTable.SelectedRows[0].Cells[2].Value.ToString())-1);
+            if (int.Parse(dgwContentTable.SelectedRows[0].Cells[2].Value.ToString()) <= 0)
+                dgwContentTable.Rows.RemoveAt(dgwContentTable.SelectedRows[0].Index);
+            PullPrice();
         }
         private void bttnRemove2_Click(object sender, EventArgs e)
         {
@@ -191,10 +193,10 @@ namespace CoffeeManagement
             SqlCommand sm = new SqlCommand(query, sc);
             sm.Parameters.AddWithValue("@name", content.name);
             sc.Open(); sm.ExecuteNonQuery(); sc.Close();
-            PullDataContent();
             dgwPayementTable.SelectedRows[0].Cells[2].Value = (int.Parse(dgwPayementTable.SelectedRows[0].Cells[2].Value.ToString()) - 1);
             if (int.Parse(dgwPayementTable.SelectedRows[0].Cells[2].Value.ToString()) <= 0)
                 dgwPayementTable.Rows.Remove(dgwPayementTable.SelectedRows[0]);
+            PullDataContent();
         }
         private void bttnPayAll_Click(object sender, EventArgs e)
         {
