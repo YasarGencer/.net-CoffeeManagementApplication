@@ -72,10 +72,14 @@ namespace CoffeeManagement
         }
         public void PullPrice()
         {
-            int price = 0;
+            int price = 0, price2 = 0;
             for (int i = 0; i < dgwContentTable.Rows.Count; i++)
                 price += int.Parse(dgwContentTable.Rows[i].Cells[1].Value.ToString()) * int.Parse(dgwContentTable.Rows[i].Cells[2].Value.ToString());
-            txtBill.Text = price.ToString();
+            for (int i = 0; i < dgwPayementTable.RowCount; i++)
+                price2 += int.Parse(dgwPayementTable.Rows[i].Cells[1].Value.ToString()) * int.Parse(dgwPayementTable.Rows[i].Cells[2].Value.ToString());
+            txtBillAll.Text = (price + price2).ToString();
+            txtBill.Text = price2.ToString();
+            
         }
         #endregion
         #region SELECTION CHANGED
@@ -136,16 +140,6 @@ namespace CoffeeManagement
                 PullDataContent();
             }
         }
-        private void bttnPay_Click(object sender, EventArgs e)
-        {
-            SqlConnection sc = new SqlConnection(AdminPage.sctext);
-            string query1 = "DELETE FROM table" + tableId;
-            SqlCommand sm1 = new SqlCommand(query1, sc);
-            sc.Open();
-            sm1.ExecuteNonQuery();
-            sc.Close();
-            PullDataContent();
-        }
         private void bttnTransfer_Click(object sender, EventArgs e)
         {
             string tableName = "table" + tableId;
@@ -180,17 +174,49 @@ namespace CoffeeManagement
                     break;
                 }
             if (!contentWriten && dgwContentTable.RowCount > 0)
-                dgwPayementTable.Rows.Add(content.name,content.price,5);
+                dgwPayementTable.Rows.Add(content.name,content.price,1);
 
+        }
+        private void bttnRemove2_Click(object sender, EventArgs e)
+        {
+            string tableName = "table" + tableId;
+            Content content = new Content();
+            content.name = dgwPayementTable.SelectedRows[0].Cells[0].Value.ToString();
+            content.price = int.Parse(dgwPayementTable.SelectedRows[0].Cells[1].Value.ToString());
+            SqlConnection sc = new SqlConnection(AdminPage.sctext); ;
+            string query2 = "UPDATE " + tableName + " SET itemCount += 1 WHERE itemName = @name";
+            string query3 = "INSERT INTO " + tableName + " VALUES('" + (content.name) + "','" + content.price + "','1')";
+            string query4 = "(SELECT * FROM " + tableName + " WHERE itemName = @name) ";
+            string query = " IF EXISTS" + query4 + query2 + " ELSE " + query3;
+            SqlCommand sm = new SqlCommand(query, sc);
+            sm.Parameters.AddWithValue("@name", content.name);
+            sc.Open(); sm.ExecuteNonQuery(); sc.Close();
+            PullDataContent();
+            dgwPayementTable.SelectedRows[0].Cells[2].Value = (int.Parse(dgwPayementTable.SelectedRows[0].Cells[2].Value.ToString()) - 1);
+            if (int.Parse(dgwPayementTable.SelectedRows[0].Cells[2].Value.ToString()) <= 0)
+                dgwPayementTable.Rows.Remove(dgwPayementTable.SelectedRows[0]);
+        }
+        private void bttnPayAll_Click(object sender, EventArgs e)
+        {
+            SqlConnection sc = new SqlConnection(AdminPage.sctext);
+            string query1 = "DELETE FROM table" + tableId;
+            SqlCommand sm1 = new SqlCommand(query1, sc);
+            sc.Open();
+            sm1.ExecuteNonQuery();
+            sc.Close();
+            PullDataContent();
+        }
+        private void bttnPay_Click(object sender, EventArgs e)
+        {
+            dgwPayementTable.Rows.Clear();
+            PullPrice();
         }
         private void bttnAdd_Click(object sender, EventArgs e)
         {
             if (tableId != -1 && itemId != -1)
             {
                 string tableName = "table" + tableId;
-                Content content = new Content();
-                content.name = "";
-                SqlConnection sc = new SqlConnection(AdminPage.sctext); ;
+                SqlConnection sc = new SqlConnection(AdminPage.sctext);
                 string query2 = "UPDATE " + tableName + " SET itemCount += @count WHERE itemName = @name";
                 string query3 = "INSERT INTO " + tableName + " VALUES('" + (chosenContent.name) + "','" + chosenContent.price + "','" + int.Parse(txtCount.Text) + "')";
                 string query4 = "(SELECT * FROM " + tableName + " WHERE itemName = @name) ";

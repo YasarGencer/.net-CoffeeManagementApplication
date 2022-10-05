@@ -35,10 +35,13 @@ namespace CoffeeManagement
             this.dgwContentTable = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.bttnPay = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.bttnPayAll = new System.Windows.Forms.Button();
             this.txtBill = new System.Windows.Forms.TextBox();
+            this.txtBillAll = new System.Windows.Forms.TextBox();
             this.lblBillInfo = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.bttnRemove2 = new System.Windows.Forms.Button();
             this.bttnTransfer = new System.Windows.Forms.Button();
             this.txtName2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -141,31 +144,51 @@ namespace CoffeeManagement
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.bttnPay);
+            this.panel3.Controls.Add(this.button1);
+            this.panel3.Controls.Add(this.bttnPayAll);
             this.panel3.Controls.Add(this.txtBill);
+            this.panel3.Controls.Add(this.txtBillAll);
             this.panel3.Controls.Add(this.lblBillInfo);
             this.panel3.Location = new System.Drawing.Point(3, 103);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(692, 80);
             this.panel3.TabIndex = 13;
             // 
-            // bttnPay
+            // button1
             // 
-            this.bttnPay.Location = new System.Drawing.Point(6, 53);
-            this.bttnPay.Name = "bttnPay";
-            this.bttnPay.Size = new System.Drawing.Size(681, 23);
-            this.bttnPay.TabIndex = 2;
-            this.bttnPay.Text = "PAY";
-            this.bttnPay.UseVisualStyleBackColor = true;
-            this.bttnPay.Click += new System.EventHandler(this.bttnPay_Click);
+            this.button1.Location = new System.Drawing.Point(350, 52);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(336, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "PAY";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.bttnPay_Click);
+            // 
+            // bttnPayAll
+            // 
+            this.bttnPayAll.Location = new System.Drawing.Point(6, 53);
+            this.bttnPayAll.Name = "bttnPayAll";
+            this.bttnPayAll.Size = new System.Drawing.Size(336, 23);
+            this.bttnPayAll.TabIndex = 2;
+            this.bttnPayAll.Text = "PAY ALL";
+            this.bttnPayAll.UseVisualStyleBackColor = true;
+            this.bttnPayAll.Click += new System.EventHandler(this.bttnPayAll_Click);
             // 
             // txtBill
             // 
             this.txtBill.Enabled = false;
-            this.txtBill.Location = new System.Drawing.Point(6, 27);
+            this.txtBill.Location = new System.Drawing.Point(351, 27);
             this.txtBill.Name = "txtBill";
-            this.txtBill.Size = new System.Drawing.Size(681, 20);
+            this.txtBill.Size = new System.Drawing.Size(336, 20);
             this.txtBill.TabIndex = 15;
+            // 
+            // txtBillAll
+            // 
+            this.txtBillAll.Enabled = false;
+            this.txtBillAll.Location = new System.Drawing.Point(6, 27);
+            this.txtBillAll.Name = "txtBillAll";
+            this.txtBillAll.Size = new System.Drawing.Size(336, 20);
+            this.txtBillAll.TabIndex = 15;
             // 
             // lblBillInfo
             // 
@@ -180,6 +203,7 @@ namespace CoffeeManagement
             // 
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.bttnRemove2);
             this.panel4.Controls.Add(this.bttnTransfer);
             this.panel4.Controls.Add(this.txtName2);
             this.panel4.Controls.Add(this.label2);
@@ -188,11 +212,21 @@ namespace CoffeeManagement
             this.panel4.Size = new System.Drawing.Size(330, 80);
             this.panel4.TabIndex = 13;
             // 
+            // bttnRemove2
+            // 
+            this.bttnRemove2.Location = new System.Drawing.Point(177, 52);
+            this.bttnRemove2.Name = "bttnRemove2";
+            this.bttnRemove2.Size = new System.Drawing.Size(147, 23);
+            this.bttnRemove2.TabIndex = 2;
+            this.bttnRemove2.Text = "REMOVE";
+            this.bttnRemove2.UseVisualStyleBackColor = true;
+            this.bttnRemove2.Click += new System.EventHandler(this.bttnRemove2_Click);
+            // 
             // bttnTransfer
             // 
             this.bttnTransfer.Location = new System.Drawing.Point(3, 52);
             this.bttnTransfer.Name = "bttnTransfer";
-            this.bttnTransfer.Size = new System.Drawing.Size(321, 23);
+            this.bttnTransfer.Size = new System.Drawing.Size(168, 23);
             this.bttnTransfer.TabIndex = 2;
             this.bttnTransfer.Text = "TRANSFER";
             this.bttnTransfer.UseVisualStyleBackColor = true;
@@ -365,8 +399,8 @@ namespace CoffeeManagement
         private System.Windows.Forms.Button bttnRemove;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tables;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button bttnPay;
-        private System.Windows.Forms.TextBox txtBill;
+        private System.Windows.Forms.Button bttnPayAll;
+        private System.Windows.Forms.TextBox txtBillAll;
         private System.Windows.Forms.Label lblBillInfo;
         private System.Windows.Forms.DataGridView dgwPayementTable;
         private System.Windows.Forms.Panel panel4;
@@ -376,5 +410,8 @@ namespace CoffeeManagement
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.Button bttnRemove2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtBill;
     }
 }
