@@ -29,16 +29,17 @@ namespace CoffeeManagement
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignInPage));
             this.lblSıgnIn = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbPassShown = new System.Windows.Forms.CheckBox();
             this.bttnSign = new System.Windows.Forms.Button();
+            this.lblPass2 = new System.Windows.Forms.Label();
             this.lblPass = new System.Windows.Forms.Label();
             this.lblUser = new System.Windows.Forms.Label();
+            this.txtPass2 = new System.Windows.Forms.TextBox();
             this.txtPass = new System.Windows.Forms.TextBox();
             this.txtUser = new System.Windows.Forms.TextBox();
-            this.txtPass2 = new System.Windows.Forms.TextBox();
-            this.lblPass2 = new System.Windows.Forms.Label();
             this.lblInfo = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -94,6 +95,15 @@ namespace CoffeeManagement
             this.bttnSign.UseVisualStyleBackColor = true;
             this.bttnSign.Click += new System.EventHandler(this.bttnSign_Click);
             // 
+            // lblPass2
+            // 
+            this.lblPass2.AutoSize = true;
+            this.lblPass2.Location = new System.Drawing.Point(1, 104);
+            this.lblPass2.Name = "lblPass2";
+            this.lblPass2.Size = new System.Drawing.Size(53, 13);
+            this.lblPass2.TabIndex = 3;
+            this.lblPass2.Text = "Password";
+            // 
             // lblPass
             // 
             this.lblPass.AutoSize = true;
@@ -112,6 +122,14 @@ namespace CoffeeManagement
             this.lblUser.TabIndex = 2;
             this.lblUser.Text = "Username";
             // 
+            // txtPass2
+            // 
+            this.txtPass2.Location = new System.Drawing.Point(3, 125);
+            this.txtPass2.Name = "txtPass2";
+            this.txtPass2.PasswordChar = '*';
+            this.txtPass2.Size = new System.Drawing.Size(180, 20);
+            this.txtPass2.TabIndex = 1;
+            // 
             // txtPass
             // 
             this.txtPass.Location = new System.Drawing.Point(2, 76);
@@ -127,23 +145,6 @@ namespace CoffeeManagement
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(180, 20);
             this.txtUser.TabIndex = 0;
-            // 
-            // txtPass2
-            // 
-            this.txtPass2.Location = new System.Drawing.Point(3, 125);
-            this.txtPass2.Name = "txtPass2";
-            this.txtPass2.PasswordChar = '*';
-            this.txtPass2.Size = new System.Drawing.Size(180, 20);
-            this.txtPass2.TabIndex = 1;
-            // 
-            // lblPass2
-            // 
-            this.lblPass2.AutoSize = true;
-            this.lblPass2.Location = new System.Drawing.Point(1, 104);
-            this.lblPass2.Name = "lblPass2";
-            this.lblPass2.Size = new System.Drawing.Size(53, 13);
-            this.lblPass2.TabIndex = 3;
-            this.lblPass2.Text = "Password";
             // 
             // lblInfo
             // 
@@ -166,9 +167,10 @@ namespace CoffeeManagement
             this.Controls.Add(this.lblInfo);
             this.Controls.Add(this.lblSıgnIn);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SignInPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SignInPage";
+            this.Text = "Coffee Management Sign In Page by YG";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

@@ -30,6 +30,7 @@ namespace CoffeeManagement
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminPage));
             this.panel1 = new System.Windows.Forms.Panel();
             this.bttnUserPage = new System.Windows.Forms.Button();
             this.bttnTableCount = new System.Windows.Forms.Button();
@@ -185,6 +186,7 @@ namespace CoffeeManagement
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.ItemTableTableAdapter = this.itemTableTableAdapter;
+            this.tableAdapterManager.SaleInfoTableAdapter = null;
             this.tableAdapterManager.TableCountTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = CoffeeManagement.CoffeeManagementItemSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.UserInfoTableAdapter = null;
@@ -292,9 +294,10 @@ namespace CoffeeManagement
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.dgwItemTable);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AdminPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AdminPage";
+            this.Text = "Coffee Management Admin Page by YG";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdminPage_FormClosed);
             this.Load += new System.EventHandler(this.AdminPage_Load);
             this.panel1.ResumeLayout(false);

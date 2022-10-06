@@ -183,9 +183,10 @@ namespace CoffeeManagement
             this.Controls.Add(this.bttnSign);
             this.Controls.Add(this.lblLogIn);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LogIn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "LogIn";
+            this.Text = "Coffee Management LogIn Page by YG";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureLogo)).EndInit();
             this.groupBox1.ResumeLayout(false);

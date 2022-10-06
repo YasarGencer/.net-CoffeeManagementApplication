@@ -29,6 +29,7 @@ namespace CoffeeManagement
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserPage));
             this.dgwItemTable = new System.Windows.Forms.DataGridView();
             this.dgwTableTable = new System.Windows.Forms.DataGridView();
             this.Tables = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -365,8 +366,9 @@ namespace CoffeeManagement
             this.Controls.Add(this.dgwContentTable);
             this.Controls.Add(this.dgwItemTable);
             this.Controls.Add(this.dgwTableTable);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UserPage";
-            this.Text = "UserPage";
+            this.Text = "Coffee Management User Page by YG";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.UserPage_FormClosed);
             this.Load += new System.EventHandler(this.UserPage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgwItemTable)).EndInit();
