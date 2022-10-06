@@ -4,8 +4,7 @@ Fully functioning Minimum Viable Product
 
 Project has a log in and sign in page connected to sql server
 
-<img src="img/Login.jpg">
-<img src="img/Signin.jpg">
+<img src="img/Login.jpg"> <img src="img/Signin.jpg">
 
 User can use admin page to:
 
