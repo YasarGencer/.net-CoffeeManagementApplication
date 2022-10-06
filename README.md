@@ -1,4 +1,4 @@
 # Coffee Management App Using .NET Programming
 
-Currently under construction
+Fully functioning Minimum Viable Product
 
