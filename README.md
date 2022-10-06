@@ -29,6 +29,4 @@ User can use user page to:
 
 4- Seperate the bill for each person on table
 
-<img src="img/UserPage.jpg">
-
 Every table has its own database to store data, when admin change table count to higher number system auotmaticly create new data table for tables.
