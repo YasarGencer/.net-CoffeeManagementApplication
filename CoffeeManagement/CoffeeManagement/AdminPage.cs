@@ -174,6 +174,11 @@ namespace CoffeeManagement
                 PullData();
             }
         }
+
+        private void dgwItemTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
     public class Item
     {

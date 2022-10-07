@@ -71,6 +71,7 @@
     <Compile Include="SignInPage.Designer.cs">
       <DependentUpon>SignInPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="User.cs" />
     <Compile Include="UserPage.cs">
       <SubType>Form</SubType>
     </Compile>

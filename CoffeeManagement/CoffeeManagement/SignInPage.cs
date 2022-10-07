@@ -13,11 +13,8 @@ namespace CoffeeManagement
 {
     public partial class SignInPage : Form
     {
-        public SignInPage()
-        {
-            InitializeComponent();
-        }
-
+        public SignInPage() => InitializeComponent();
+        //SETS PASSWORD TEXTS AS SHOWN OR HIDEN
         private void cbPassShown_CheckedChanged(object sender, EventArgs e)
         {
             if (!cbPassShown.Checked)
@@ -31,47 +28,21 @@ namespace CoffeeManagement
                 txtPass2.PasswordChar = '\0';
             }
         }
+        //SIGN IN BUTTON
         private void bttnSign_Click(object sender, EventArgs e)
         {
             if (txtPass.Text == "" || txtPass2.Text == "" || txtUser.Text == "")
                 MessageBox.Show("All areas must be filled");
             else if (txtPass.Text != txtPass2.Text)
                 MessageBox.Show("Passwords doesn't match");
-            else if (CheckUserName(txtUser.Text).username == txtUser.Text)
+            else if (User.CheckUserName(txtUser.Text).username == txtUser.Text)
                 MessageBox.Show("User already exists");
             else
-                SignIn();
-        }
-        void SignIn()
-        {
-            SqlConnection sc = new SqlConnection(@"Data Source=LAPTOP-AAAAAAAA;Initial Catalog=CoffeeManagement;Persist Security Info=True;User ID=sa;Password=123456");
-            SqlCommand sm = new SqlCommand("insert into UserInfo values('" + txtUser.Text + "','" + txtPass.Text + "')", sc);
-            sc.Open();
-            sm.ExecuteNonQuery();
-            sc.Close();
-            MessageBox.Show("Sign In Successful");
-            Hide();
-        }
-        User CheckUserName(string fName)
-        {
-            SqlConnection sc = new SqlConnection(@"Data Source=LAPTOP-AAAAAAAA;Initial Catalog=CoffeeManagement;Persist Security Info=True;User ID=sa;Password=123456");
-            User matchingPerson = new User();
-            using (sc)
             {
-                string oString = "Select * from UserInfo where username=@fName";
-                SqlCommand oCmd = new SqlCommand(oString, sc);
-                oCmd.Parameters.AddWithValue("@Fname", fName);
-                sc.Open();
-                using (SqlDataReader oReader = oCmd.ExecuteReader())
-                    while (oReader.Read())
-                    {
-                        matchingPerson.username = oReader["username"].ToString();
-                        matchingPerson.password = oReader["password"].ToString();
-                    }
+                new User(txtUser.Text, txtPass.Text).SignIn();
+                MessageBox.Show("Sign In Successful");
+                this.Close();
             }
-            sc.Close();
-            return matchingPerson;
         }
     }
-   
 }
