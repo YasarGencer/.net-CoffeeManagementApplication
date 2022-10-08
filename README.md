@@ -8,25 +8,25 @@ Project has a log in and sign in page connected to sql server
 
 User can use admin page to:
 
-1- Create new item
+1. Create new item
 
-2- Edit an existing item
+2. Edit an existing item
 
-3- Delete an existing item
+3. Delete an existing item
 
-4- Set table count
+4. Set table count
 
 <img src="img/AdminPage.jpg">
 
 User can use user page to:
 
-1- Set order to any table
+1. Set order to any table
 
-2- Check each individual tables bill
+2. Check each individual tables bill
 
-3- Pay all the bill of the table
+3. Pay all the bill of the table
 
-4- Seperate the bill for each person on table
+4. Seperate the bill for each person on table
 
 <img src="img/UserPage2.jpg">
 
