@@ -30,4 +30,4 @@ User can use user page to:
 
 <img src="img/UserPage2.jpg">
 
-Every table has its own database to store data, when admin change table count to higher number system auotmaticly create new data table for tables.
+Every table has its own database to store data, when admin change table count to higher number system auotmaticly create new data table for tables...
