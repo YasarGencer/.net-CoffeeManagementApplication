@@ -14,20 +14,14 @@ namespace CoffeeManagement
     public partial class LogIn : Form
     {
         public LogIn() => InitializeComponent();
-        //SETS PASSWORD TEXTS AS SHOWN OR HIDEN
-        private void cbPassShown_CheckedChanged(object sender, EventArgs e)
-        {
-            if (!cbPassShown.Checked)   txtPass.PasswordChar = '*';
-            else    txtPass.PasswordChar = '\0';
-        }
+        #region BUTTONS
         //SIGN IN BUTTON
         private void bttnSign_Click(object sender, EventArgs e) => new SignInPage().Show();
         //LOG IN BUTTON
         private void bttnLog_Click(object sender, EventArgs e)
         {
             User writenUser = new User(txtUser.Text,txtPass.Text);
-            User controlUser = User.CheckUserName(writenUser.username);
-            if(controlUser.password == writenUser.password)
+            if(User.CheckUserName(writenUser.username).password == writenUser.password)
             {
                 MessageBox.Show("Log in succsessfull");
                 if (writenUser.username == "admin")     new AdminPage().Show();
@@ -36,5 +30,14 @@ namespace CoffeeManagement
             }
             MessageBox.Show("Incorrect password or username");
         }
+        #endregion
+        #region INTERACTABLES
+        //SETS PASSWORD TEXTS AS SHOWN OR HIDEN
+        private void cbPassShown_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!cbPassShown.Checked) txtPass.PasswordChar = '*';
+            else txtPass.PasswordChar = '\0';
+        }
+        #endregion
     }
 }

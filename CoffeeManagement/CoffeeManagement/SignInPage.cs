@@ -13,21 +13,8 @@ namespace CoffeeManagement
 {
     public partial class SignInPage : Form
     {
-        public SignInPage() => InitializeComponent();
-        //SETS PASSWORD TEXTS AS SHOWN OR HIDEN
-        private void cbPassShown_CheckedChanged(object sender, EventArgs e)
-        {
-            if (!cbPassShown.Checked)
-            {
-                txtPass.PasswordChar = '*';
-                txtPass2.PasswordChar = '*';
-            }
-            else
-            {
-                txtPass.PasswordChar = '\0';
-                txtPass2.PasswordChar = '\0';
-            }
-        }
+        public SignInPage() => InitializeComponent();  
+        #region BUTTONS
         //SIGN IN BUTTON
         private void bttnSign_Click(object sender, EventArgs e)
         {
@@ -44,5 +31,22 @@ namespace CoffeeManagement
                 this.Close();
             }
         }
+        #endregion
+        #region INTERACTABLES
+        //SETS PASSWORD TEXTS AS SHOWN OR HIDEN
+        private void cbPassShown_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!cbPassShown.Checked)
+            {
+                txtPass.PasswordChar = '*';
+                txtPass2.PasswordChar = '*';
+            }
+            else
+            {
+                txtPass.PasswordChar = '\0';
+                txtPass2.PasswordChar = '\0';
+            }
+        }
+        #endregion
     }
 }

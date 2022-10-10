@@ -40,21 +40,20 @@ namespace CoffeeManagement
         }
         #endregion
         #region STATIC FUNTIONS
-        public static User CheckUserName(string fName)
+        public static User CheckUserName(string name)
         {
             SqlConnection sc = new SqlConnection(scText);
             User matchingPerson = new User();
             using (sc)
             {
-                string oString = "Select * from UserInfo where username=@fName";
-                SqlCommand oCmd = new SqlCommand(oString, sc);
-                oCmd.Parameters.AddWithValue("@Fname", fName);
+                string query = "Select * from UserInfo where username=" + name + "";
+                SqlCommand sm = new SqlCommand(query, sc);
                 sc.Open();
-                using (SqlDataReader oReader = oCmd.ExecuteReader())
-                    while (oReader.Read())
+                using (SqlDataReader smReader = sm.ExecuteReader())
+                    while (smReader.Read())
                     {
-                        matchingPerson.username = oReader["username"].ToString();
-                        matchingPerson.password = oReader["password"].ToString();
+                        matchingPerson.username = smReader["username"].ToString();
+                        matchingPerson.password = smReader["password"].ToString();
                     }
             }
             sc.Close();
