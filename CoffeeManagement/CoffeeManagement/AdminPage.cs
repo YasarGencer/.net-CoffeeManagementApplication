@@ -13,7 +13,7 @@ namespace CoffeeManagement
 {
     public partial class AdminPage : Form
     {
-        public int id = -1;
+        Item item;
         public AdminPage() => InitializeComponent();
         private void AdminPage_Load(object sender, EventArgs e)
         {
@@ -44,12 +44,12 @@ namespace CoffeeManagement
         }
         private void bttnSaveEdit_Click(object sender, EventArgs e)
         {
-            new Item(id, txtEditName.Text, float.Parse(txtEditPrice.Text)).SaveItemChanges();
+            item.SaveItemChanges();
             PullData();
         }
         private void bttnDeleteItem_Click(object sender, EventArgs e)
         {
-            new Item(id).DeleteItem(dgwItemTable.Rows.Count - 1);
+            item.DeleteItem(dgwItemTable.Rows.Count - 1);
             PullData();
         }
         #endregion
@@ -58,19 +58,11 @@ namespace CoffeeManagement
         {
             if (dgwItemTable.SelectedRows.Count > 0)
             {
-                SqlConnection sc = new SqlConnection(User.scText);
-                id = int.Parse(dgwItemTable.SelectedRows[0].Cells[0].Value.ToString());
-                string query = "select * from ItemTable where itemId = @id";
-                SqlCommand sm = new SqlCommand(query, sc);
-                sm.Parameters.AddWithValue("@id", id);
-                sc.Open();
-                using (SqlDataReader oReader = sm.ExecuteReader())
-                    while (oReader.Read())
-                    {
-                        txtEditName.Text = oReader["itemName"].ToString();
-                        txtEditPrice.Text = oReader["itemPrice"].ToString();
-                    }
-                sc.Close();
+                item.id = int.Parse(dgwItemTable.SelectedRows[0].Cells[0].Value.ToString());
+                item.name = dgwItemTable.SelectedRows[0].Cells[1].Value.ToString();
+                item.price = float.Parse(dgwItemTable.SelectedRows[0].Cells[2].Value.ToString());
+                txtEditName.Text = item.name.ToString();
+                txtEditPrice.Text = item.price.ToString();
             }
         }
         #endregion
