@@ -28,7 +28,8 @@ namespace CoffeeManagement
                 else    new UserPage().Show();
                 this.Hide();
             }
-            MessageBox.Show("Incorrect password or username");
+            else
+                MessageBox.Show("Incorrect password or username");
         }
         #endregion
         #region INTERACTABLES

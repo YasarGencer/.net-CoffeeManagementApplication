@@ -27,16 +27,15 @@ namespace CoffeeManagement
         }
         private void bttnAdd_Click(object sender, EventArgs e)
         {
-            item = new Item(
-                dgwItemTable.Rows.Count,
-                txtName.Text, 
-                float.Parse(txtPrice.Text)
-                );
             if (Item.CheckItemName(txtName.Text).name == item.name)
                 MessageBox.Show("Item already exists");
             else
             {
-                item.AddItemToDB();
+                new Item(
+                    dgwItemTable.Rows.Count,
+                    txtName.Text,
+                    float.Parse(txtPrice.Text)
+                ).AddItemToDB();
                 MessageBox.Show("Item added succsessfully");
                 PullData();
             }
@@ -48,12 +47,11 @@ namespace CoffeeManagement
         }
         private void bttnSaveEdit_Click(object sender, EventArgs e)
         {
-            item = new Item(
+            new Item(
                 item.id,
                 txtEditName.Text,
                 float.Parse(txtEditPrice.Text)
-                );
-            item.SaveItemChanges();
+            ).SaveItemChanges();
             PullData();
         }
         private void bttnDeleteItem_Click(object sender, EventArgs e)
