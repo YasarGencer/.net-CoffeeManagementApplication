@@ -42,37 +42,35 @@ namespace CoffeeManagement
         public void AddItemToDB()
         {
             SqlConnection sc = new SqlConnection(User.scText);
-            SqlCommand sm = new SqlCommand("insert into ItemTable values('" + this.id + "','" + this.name + "','" + this.price + "')", sc);
-            sc.Open();
-            sm.ExecuteNonQuery();
-            sc.Close();
+            string query = "insert into ItemTable values('" + this.id + "','" + this.name + "','" + this.price + "')";
+            Execute(new SqlCommand(query, sc), sc);
         }
         public void SaveItemChanges()
         {
             SqlConnection sc = new SqlConnection(User.scText);
-            string query = "update ItemTable set itemPrice = " + this.price + " , itemName = " + this.price + " where itemId = " + id + "";
+            string query = "update ItemTable set itemName = @name , itemPrice = @price where itemId = @id";
             SqlCommand sm = new SqlCommand(query, sc);
-            sc.Open();
-            sm.ExecuteNonQuery();
-            sc.Close();
+            sm.Parameters.AddWithValue("@id", this.id);
+            sm.Parameters.AddWithValue("@name", this.name);
+            sm.Parameters.AddWithValue("@price", this.price);
+            Execute(sm, sc);
         }
         public void DeleteItem(int itemCountInTable)
         {
             SqlConnection sc = new SqlConnection(User.scText);
             string query1 = "delete from ItemTable where itemId = " + id + "";
             string query2 = "update ItemTable set itemId = " + id + " where itemId = @id1";
-            SqlCommand sm1 = new SqlCommand(query1, sc);
-            SqlCommand sm2 = new SqlCommand(query2, sc);
-            sc.Open();
-            sm1.ExecuteNonQuery();
+            SqlCommand sm = new SqlCommand(query2, sc);
+            Execute(new SqlCommand(query1, sc), sc);
             //Corrects the item ids.
+            sc.Open();
             for (int i = id; i < itemCountInTable; i++)
             {
-                sm2.Parameters.AddWithValue("@id", i);
-                sm2.Parameters.AddWithValue("@id1", i + 1);
-                sm2.ExecuteNonQuery();
-                sm2.Parameters.RemoveAt("@id");
-                sm2.Parameters.RemoveAt("@id1");
+                sm.Parameters.AddWithValue("@id", i);
+                sm.Parameters.AddWithValue("@id1", i + 1);
+                sm.ExecuteNonQuery();
+                sm.Parameters.RemoveAt("@id");
+                sm.Parameters.RemoveAt("@id1");
             }
             sc.Close();
         }
@@ -84,8 +82,9 @@ namespace CoffeeManagement
             Item matchingItem = new Item();
             using (sc)
             {
-                string query = "Select * from ItemTable where itemName=" + name  +  "";
+                string query = "Select * from ItemTable where itemName = @name";
                 SqlCommand sm = new SqlCommand(query, sc);
+                sm.Parameters.AddWithValue("@name", name);
                 sc.Open();
                 using (SqlDataReader smReader = sm.ExecuteReader())
                     while (smReader.Read())
@@ -101,10 +100,10 @@ namespace CoffeeManagement
         public static void SaveTableCount(int count)
         {
             SqlConnection sc = new SqlConnection(User.scText);
-            SqlCommand sm = new SqlCommand("UPDATE TableCount SET count = "+ count.ToString() + " Where id = 1 ", sc);
-            sc.Open();
-            sm.ExecuteNonQuery();
-            sc.Close();
+            string query = "UPDATE TableCount SET count = @count Where id = 1 ";
+            SqlCommand sm = new SqlCommand(query, sc);
+            sm.Parameters.AddWithValue("@count", count);
+            Execute(sm, sc);
         }
         public static string GetTableCount()
         {
@@ -112,15 +111,21 @@ namespace CoffeeManagement
             SqlConnection sc = new SqlConnection(User.scText);
             using (sc)
             {
-                string oString = "Select * from TableCount where id=1";
-                SqlCommand sm = new SqlCommand(oString, sc);
+                string query = "Select * from TableCount where id=1";
+                SqlCommand sm = new SqlCommand(query, sc);
                 sc.Open();
-                using (SqlDataReader oReader = sm.ExecuteReader())
-                    while (oReader.Read())
-                        tableCount = oReader["count"].ToString();
+                using (SqlDataReader smReader = sm.ExecuteReader())
+                    while (smReader.Read())
+                        tableCount = smReader["count"].ToString();
                 sc.Close();
             }
             return tableCount;
+        }
+        public static void Execute(SqlCommand sm, SqlConnection sc)
+        {
+            sc.Open();
+            sm.ExecuteNonQuery();
+            sc.Close();
         }
         #endregion
     }

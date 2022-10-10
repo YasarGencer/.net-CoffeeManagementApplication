@@ -34,9 +34,7 @@ namespace CoffeeManagement
             SqlCommand sm = new SqlCommand
                 ("insert into UserInfo values('" + this.username + "','" + 
                 this.password + "')", sc);
-            sc.Open();
-            sm.ExecuteNonQuery();
-            sc.Close();
+            Item.Execute(sm, sc);
         }
         #endregion
         #region STATIC FUNTIONS
@@ -46,8 +44,9 @@ namespace CoffeeManagement
             User matchingPerson = new User();
             using (sc)
             {
-                string query = "Select * from UserInfo where username=" + name + "";
+                string query = "Select * from UserInfo where username = @name ";
                 SqlCommand sm = new SqlCommand(query, sc);
+                sm.Parameters.AddWithValue("@name", name);
                 sc.Open();
                 using (SqlDataReader smReader = sm.ExecuteReader())
                     while (smReader.Read())

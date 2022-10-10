@@ -13,7 +13,7 @@ namespace CoffeeManagement
 {
     public partial class AdminPage : Form
     {
-        Item item;
+        Item item = new Item();
         public AdminPage() => InitializeComponent();
         private void AdminPage_Load(object sender, EventArgs e)
         {
@@ -27,12 +27,16 @@ namespace CoffeeManagement
         }
         private void bttnAdd_Click(object sender, EventArgs e)
         {
-            Item newItem = new Item(dgwItemTable.Rows.Count, txtName.Text, float.Parse(txtPrice.Text));
-            if (Item.CheckItemName(txtName.Text).name == txtName.Text)
+            item = new Item(
+                dgwItemTable.Rows.Count,
+                txtName.Text, 
+                float.Parse(txtPrice.Text)
+                );
+            if (Item.CheckItemName(txtName.Text).name == item.name)
                 MessageBox.Show("Item already exists");
             else
             {
-                newItem.AddItemToDB();
+                item.AddItemToDB();
                 MessageBox.Show("Item added succsessfully");
                 PullData();
             }
@@ -44,6 +48,11 @@ namespace CoffeeManagement
         }
         private void bttnSaveEdit_Click(object sender, EventArgs e)
         {
+            item = new Item(
+                item.id,
+                txtEditName.Text,
+                float.Parse(txtEditPrice.Text)
+                );
             item.SaveItemChanges();
             PullData();
         }
@@ -56,11 +65,13 @@ namespace CoffeeManagement
         #region INTERACTABLES
         private void dgwItemTable_SelectionChanged(object sender, EventArgs e)
         {
-            if (dgwItemTable.SelectedRows.Count > 0)
+            if (dgwItemTable.RowCount > 0 && dgwItemTable.SelectedRows.Count > 0)
             {
-                item.id = int.Parse(dgwItemTable.SelectedRows[0].Cells[0].Value.ToString());
-                item.name = dgwItemTable.SelectedRows[0].Cells[1].Value.ToString();
-                item.price = float.Parse(dgwItemTable.SelectedRows[0].Cells[2].Value.ToString());
+                item = new Item(
+                    int.Parse(dgwItemTable.SelectedRows[0].Cells[0].Value.ToString()),
+                    dgwItemTable.SelectedRows[0].Cells[1].Value.ToString(),
+                    float.Parse(dgwItemTable.SelectedRows[0].Cells[2].Value.ToString())
+                    );
                 txtEditName.Text = item.name.ToString();
                 txtEditPrice.Text = item.price.ToString();
             }

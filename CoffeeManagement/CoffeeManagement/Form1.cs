@@ -26,7 +26,7 @@ namespace CoffeeManagement
                 MessageBox.Show("Log in succsessfull");
                 if (writenUser.username == "admin")     new AdminPage().Show();
                 else    new UserPage().Show();
-                this.Close();
+                this.Hide();
             }
             MessageBox.Show("Incorrect password or username");
         }

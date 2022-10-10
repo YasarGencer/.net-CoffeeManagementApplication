@@ -30,7 +30,7 @@ namespace CoffeeManagement
         #region PULL DATA
         public void PullDataItem()
         {
-            SqlConnection sc = new SqlConnection(AdminPage.sctext);
+            SqlConnection sc = new SqlConnection(User.scText);
             string query = "select * from ItemTable order by itemId";
             sc.Open();
             SqlCommand sm = new SqlCommand(query, sc);
@@ -43,7 +43,7 @@ namespace CoffeeManagement
         int tableCount = 0;
         public void PullDataTable()
         {
-            SqlConnection sc = new SqlConnection(AdminPage.sctext);
+            SqlConnection sc = new SqlConnection(User.scText);
             string query = "select * from TableCount where id = 1";
             SqlCommand sm = new SqlCommand(query, sc);
             sc.Open();
@@ -59,7 +59,7 @@ namespace CoffeeManagement
         }
         public void PullDataContent()
         {
-            SqlConnection sc = new SqlConnection(AdminPage.sctext);
+            SqlConnection sc = new SqlConnection(User.scText);
             string query = "select * from table" + tableId;
             sc.Open();
             SqlCommand sm = new SqlCommand(query, sc);
@@ -89,7 +89,7 @@ namespace CoffeeManagement
         {
             if (dgwItemTable.SelectedRows.Count > 0)
             {
-                SqlConnection sc = new SqlConnection(AdminPage.sctext);
+                SqlConnection sc = new SqlConnection(User.scText);
                 itemId = int.Parse(dgwItemTable.SelectedRows[0].Cells[0].Value.ToString());
                 string query = "select * from ItemTable where itemId = @id";
                 SqlCommand sm = new SqlCommand(query, sc);
@@ -111,7 +111,7 @@ namespace CoffeeManagement
                 tableId = int.Parse(dgwTableTable.SelectedRows[0].Index.ToString()) + 1;
             if (itemId != -1 && tableId != -1)
             {
-                SqlConnection sc = new SqlConnection(AdminPage.sctext);
+                SqlConnection sc = new SqlConnection(User.scText);
                 string tableName = "table" + tableId;
                 string query1 = "IF object_id('" + tableName + "') is null CREATE TABLE " + tableName + " (itemName varchar(50),itemPrice float, itemCount int);";
                 SqlCommand sm1 = new SqlCommand(query1, sc);
@@ -129,7 +129,7 @@ namespace CoffeeManagement
         {
             if(dgwContentTable.SelectedRows.Count > 0)
             {
-                SqlConnection sc = new SqlConnection(AdminPage.sctext);
+                SqlConnection sc = new SqlConnection(User.scText);
                 string name = dgwContentTable.SelectedRows[0].Cells[0].Value.ToString();
                 string query1 = "DELETE FROM table" + tableId + " WHERE itemName = @name";
                 SqlCommand sm1 = new SqlCommand(query1, sc);
@@ -145,7 +145,7 @@ namespace CoffeeManagement
             string tableName = "table" + tableId;
             Content content = new Content();
             content.name = "";
-            SqlConnection sc = new SqlConnection(AdminPage.sctext);
+            SqlConnection sc = new SqlConnection(User.scText);
             string query = "SELECT * FROM " + tableName + " WHERE itemName = @name";
             string query2 = "UPDATE " + tableName + " SET itemCount -= 1 WHERE itemName = @name";
             SqlCommand sm = new SqlCommand(query, sc);
@@ -185,7 +185,7 @@ namespace CoffeeManagement
             Content content = new Content();
             content.name = dgwPayementTable.SelectedRows[0].Cells[0].Value.ToString();
             content.price = int.Parse(dgwPayementTable.SelectedRows[0].Cells[1].Value.ToString());
-            SqlConnection sc = new SqlConnection(AdminPage.sctext); ;
+            SqlConnection sc = new SqlConnection(User.scText); ;
             string query2 = "UPDATE " + tableName + " SET itemCount += 1 WHERE itemName = @name";
             string query3 = "INSERT INTO " + tableName + " VALUES('" + (content.name) + "','" + content.price + "','1')";
             string query4 = "(SELECT * FROM " + tableName + " WHERE itemName = @name) ";
@@ -200,7 +200,7 @@ namespace CoffeeManagement
         }
         private void bttnPayAll_Click(object sender, EventArgs e)
         {
-            SqlConnection sc = new SqlConnection(AdminPage.sctext);
+            SqlConnection sc = new SqlConnection(User.scText);
             string query1 = "DELETE FROM table" + tableId;
             SqlCommand sm1 = new SqlCommand(query1, sc);
             sc.Open();
@@ -220,7 +220,7 @@ namespace CoffeeManagement
             if (tableId != -1 && itemId != -1)
             {
                 string tableName = "table" + tableId;
-                SqlConnection sc = new SqlConnection(AdminPage.sctext);
+                SqlConnection sc = new SqlConnection(User.scText);
                 string query2 = "UPDATE " + tableName + " SET itemCount += @count WHERE itemName = @name";
                 string query3 = "INSERT INTO " + tableName + " VALUES('" + (chosenContent.name) + "','" + chosenContent.price + "','" + int.Parse(txtCount.Text) + "')";
                 string query4 = "(SELECT * FROM " + tableName + " WHERE itemName = @name) ";
@@ -234,7 +234,7 @@ namespace CoffeeManagement
         }
         private void SaveInfo(float value)
         {
-            SqlConnection sc = new SqlConnection(AdminPage.sctext);
+            SqlConnection sc = new SqlConnection(User.scText);
             string date = DateTime.Today.ToString().Split(' ')[0];
             string query2 = "UPDATE SaleInfo SET TotalSale += @sale  WHERE Date = @date ";
             string query3 = "INSERT INTO SaleInfo VALUES('" + value + "','" + date + "' ) ";
