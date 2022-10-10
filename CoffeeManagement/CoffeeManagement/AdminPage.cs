@@ -180,9 +180,4 @@ namespace CoffeeManagement
 
         }
     }
-    public class Item
-    {
-        public string name { get; set; }
-        public string price { get; set; }
-    }
 }

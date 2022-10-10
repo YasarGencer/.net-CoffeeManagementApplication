@@ -26,7 +26,7 @@ namespace CoffeeManagement
         private void bttnLog_Click(object sender, EventArgs e)
         {
             User writenUser = new User(txtUser.Text,txtPass.Text);
-            User controlUser = User.CheckUserName(txtUser.Text);
+            User controlUser = User.CheckUserName(writenUser.username);
             if(controlUser.password == writenUser.password)
             {
                 MessageBox.Show("Log in succsessfull");
@@ -34,8 +34,7 @@ namespace CoffeeManagement
                 else    new UserPage().Show();
                 this.Close();
             }
-                MessageBox.Show("Incorrect password or username");
-
+            MessageBox.Show("Incorrect password or username");
         }
     }
 }
