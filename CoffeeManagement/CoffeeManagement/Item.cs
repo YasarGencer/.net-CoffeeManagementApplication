@@ -14,6 +14,8 @@ namespace CoffeeManagement
         public float price { get; set; }
         public int count { get; set; }
         #endregion
+        #region CONSTRUCTORS
+        #endregion
         #region CLASS METHODS
         #endregion
         #region STATIC FUNCTIONS
