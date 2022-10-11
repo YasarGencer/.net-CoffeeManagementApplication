@@ -111,11 +111,6 @@ namespace CoffeeManagement
             sm.Parameters.AddWithValue("@name", this.name);
             Execute(sm, sc);
         }
-
-        public void TransferToBill()
-        {
-
-        }
         #endregion
         #region STATIC FUNCTIONS
         public static Item CheckItemName(string name)
@@ -162,6 +157,13 @@ namespace CoffeeManagement
                 sc.Close();
             }
             return tableCount;
+        }
+        public static void DeleteAllTable(string tableName)
+        {
+            SqlConnection sc = new SqlConnection(User.scText);
+            string query = "DELETE FROM " + tableName;
+            SqlCommand sm = new SqlCommand(query, sc);
+            Execute(sm, sc);
         }
         public static void Execute(SqlCommand sm, SqlConnection sc)
         {
