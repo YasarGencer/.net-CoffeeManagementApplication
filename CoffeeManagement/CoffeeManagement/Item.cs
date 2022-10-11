@@ -30,6 +30,13 @@ namespace CoffeeManagement
             this.price = -1;
             this.count = -1;
         }
+        public Item(int id, string name)
+        {
+            this.id = id;
+            this.name = name;
+            this.price = -1;
+            this.count = -1;
+        }
         public Item(int id, string name, float price)
         {
             this.id = id;
@@ -37,8 +44,16 @@ namespace CoffeeManagement
             this.price = price;
             this.count = -1;
         }
+        public Item(int id, string name, float price, int count)
+        {
+            this.id = id;
+            this.name = name;
+            this.price = price;
+            this.count = count;
+        }
         #endregion
         #region CLASS METHODS
+        //ADMIN PAGE
         public void AddItemToDB()
         {
             SqlConnection sc = new SqlConnection(User.scText);
@@ -73,6 +88,33 @@ namespace CoffeeManagement
                 sm.Parameters.RemoveAt("@id1");
             }
             sc.Close();
+        }
+        //USER PAGE
+        public void AddToTable()
+        {
+            string tableName = "table" + this.id;
+            SqlConnection sc = new SqlConnection(User.scText);
+            string query2 = "UPDATE " + tableName + " SET itemCount += @count WHERE itemName = @name";
+            string query3 = "INSERT INTO " + tableName + " VALUES('" + (this.name) + "','" + this.price + "','" + this.count + "')";
+            string query4 = "(SELECT * FROM " + tableName + " WHERE itemName = @name) ";
+            string query = " IF EXISTS" + query4 + query2 + " ELSE " + query3;
+            SqlCommand sm = new SqlCommand(query, sc);
+            sm.Parameters.AddWithValue("@name", this.name);
+            sm.Parameters.AddWithValue("@count", this.count);
+            Execute(sm, sc);
+        }
+        public void RemoveFromTable()
+        {
+            SqlConnection sc = new SqlConnection(User.scText);
+            string query = "DELETE FROM table" + this.id + " WHERE itemName = @name";
+            SqlCommand sm = new SqlCommand(query, sc);
+            sm.Parameters.AddWithValue("@name", this.name);
+            Execute(sm, sc);
+        }
+
+        public void TransferToBill()
+        {
+
         }
         #endregion
         #region STATIC FUNCTIONS
