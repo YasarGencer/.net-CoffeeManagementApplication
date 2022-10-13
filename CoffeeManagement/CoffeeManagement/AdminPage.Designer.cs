@@ -117,6 +117,7 @@ namespace CoffeeManagement
             this.txtTableCount.Name = "txtTableCount";
             this.txtTableCount.Size = new System.Drawing.Size(181, 20);
             this.txtTableCount.TabIndex = 3;
+            this.txtTableCount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTableCount_KeyPress);
             // 
             // lblTableCount
             // 
@@ -133,6 +134,7 @@ namespace CoffeeManagement
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(181, 20);
             this.txtPrice.TabIndex = 1;
+            this.txtPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrice_KeyPress);
             // 
             // lblPrice
             // 
@@ -251,6 +253,7 @@ namespace CoffeeManagement
             this.txtEditPrice.Name = "txtEditPrice";
             this.txtEditPrice.Size = new System.Drawing.Size(166, 20);
             this.txtEditPrice.TabIndex = 6;
+            this.txtEditPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrice_KeyPress);
             // 
             // lblEditPrice
             // 

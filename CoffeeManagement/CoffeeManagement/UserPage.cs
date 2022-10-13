@@ -216,6 +216,11 @@ namespace CoffeeManagement
             
         }
         #endregion
+        private void txtCount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
         private void SaveInfo(float value)
         {
             SqlConnection sc = new SqlConnection(User.scText);

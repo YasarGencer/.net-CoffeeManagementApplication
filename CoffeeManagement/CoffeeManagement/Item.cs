@@ -12,7 +12,7 @@ namespace CoffeeManagement
         #region VARIABLES
         public int id { get; set; }
         public string name { get; set; }
-        public float price { get; set; }
+        public double price { get; set; }
         public int count { get; set; }
         #endregion
         #region CONSTRUCTORS
@@ -37,7 +37,7 @@ namespace CoffeeManagement
             this.price = -1;
             this.count = -1;
         }
-        public Item(int id, string name, float price)
+        public Item(int id, string name, double price)
         {
             this.id = id;
             this.name = name;
@@ -58,7 +58,7 @@ namespace CoffeeManagement
         {
             SqlConnection sc = new SqlConnection(User.scText);
             string query = "insert into ItemTable values('" + this.id + "','" + this.name + "','" + this.price + "')";
-            Execute(new SqlCommand(query, sc), sc);
+            Execute(new SqlCommand(query,sc), sc);
         }
         public void SaveItemChanges()
         {

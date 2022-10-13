@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Globalization;
 
 namespace CoffeeManagement
 {
@@ -27,15 +28,16 @@ namespace CoffeeManagement
         }
         private void bttnAdd_Click(object sender, EventArgs e)
         {
+            item = new Item(
+                    dgwItemTable.Rows.Count,
+                    txtName.Text,
+                    Convert.ToDouble(txtPrice.Text)
+                );
             if (Item.CheckItemName(txtName.Text).name == item.name)
                 MessageBox.Show("Item already exists");
             else
             {
-                new Item(
-                    dgwItemTable.Rows.Count,
-                    txtName.Text,
-                    float.Parse(txtPrice.Text)
-                ).AddItemToDB();
+                item.AddItemToDB();
                 MessageBox.Show("Item added succsessfully");
                 PullData();
             }
@@ -87,6 +89,15 @@ namespace CoffeeManagement
             da.Fill(dt);
             dgwItemTable.DataSource = dt;
             sc.Close();
+        }
+        private void txtPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar)
+        }
+
+        private void txtTableCount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
     }
 }

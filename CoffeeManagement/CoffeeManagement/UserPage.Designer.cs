@@ -291,6 +291,7 @@ namespace CoffeeManagement
             this.txtCount.Name = "txtCount";
             this.txtCount.Size = new System.Drawing.Size(248, 20);
             this.txtCount.TabIndex = 1;
+            this.txtCount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCount_KeyPress);
             // 
             // lblCount
             // 
