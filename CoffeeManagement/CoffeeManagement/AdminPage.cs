@@ -92,7 +92,7 @@ namespace CoffeeManagement
         }
         private void txtPrice_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar)
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
 
         private void txtTableCount_KeyPress(object sender, KeyPressEventArgs e)
