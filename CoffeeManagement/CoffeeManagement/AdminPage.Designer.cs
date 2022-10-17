@@ -42,10 +42,8 @@ namespace CoffeeManagement
             this.txtName = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.lblInfo = new System.Windows.Forms.Label();
-            this.coffeeManagementItemSet = new CoffeeManagement.CoffeeManagementItemSet();
+            this.coffeeManagementItemSet = new CoffeeManagement.Database1DataSet();
             this.itemTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.itemTableTableAdapter = new CoffeeManagement.CoffeeManagementItemSetTableAdapters.ItemTableTableAdapter();
-            this.tableAdapterManager = new CoffeeManagement.CoffeeManagementItemSetTableAdapters.TableAdapterManager();
             this.dgwItemTable = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.bttnSaveEdit = new System.Windows.Forms.Button();
@@ -180,19 +178,6 @@ namespace CoffeeManagement
             this.itemTableBindingSource.DataMember = "ItemTable";
             this.itemTableBindingSource.DataSource = this.coffeeManagementItemSet;
             // 
-            // itemTableTableAdapter
-            // 
-            this.itemTableTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.ItemTableTableAdapter = this.itemTableTableAdapter;
-            this.tableAdapterManager.SaleInfoTableAdapter = null;
-            this.tableAdapterManager.TableCountTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = CoffeeManagement.CoffeeManagementItemSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.UserInfoTableAdapter = null;
-            // 
             // dgwItemTable
             // 
             this.dgwItemTable.AllowDrop = true;
@@ -317,10 +302,8 @@ namespace CoffeeManagement
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private CoffeeManagementItemSet coffeeManagementItemSet;
+        private Database1DataSet coffeeManagementItemSet;
         private System.Windows.Forms.BindingSource itemTableBindingSource;
-        private CoffeeManagementItemSetTableAdapters.ItemTableTableAdapter itemTableTableAdapter;
-        private CoffeeManagementItemSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.Label lblInfo;
         private System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.Label lblPrice;

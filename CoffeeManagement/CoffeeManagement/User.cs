@@ -12,8 +12,8 @@ namespace CoffeeManagement
         #region VARIABLES
         public string username { get; set; }
         public string password { get; set; }
-        public static string scText = 
-            "Data Source=LAPTOP-AAAAAAAA;Initial Catalog=CoffeeManagement;Persist Security Info=True;User ID=sa;Password=123456";
+        public static string scText =
+            "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = |DataDirectory|\\Database1.mdf; Integrated Security = True";
         #endregion
         #region CONSTRUCTORS
         public User(string username, string password)
