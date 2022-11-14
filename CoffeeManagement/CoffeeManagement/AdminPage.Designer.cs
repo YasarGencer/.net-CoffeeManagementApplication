@@ -42,7 +42,7 @@ namespace CoffeeManagement
             this.txtName = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.lblInfo = new System.Windows.Forms.Label();
-            this.coffeeManagementItemSet = new CoffeeManagement.Database1DataSet();
+            this.coffeeManagementItemSet = new CoffeeManagement.CafebaseDataSet();
             this.itemTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgwItemTable = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -302,7 +302,7 @@ namespace CoffeeManagement
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private Database1DataSet coffeeManagementItemSet;
+        private CafebaseDataSet coffeeManagementItemSet;
         private System.Windows.Forms.BindingSource itemTableBindingSource;
         private System.Windows.Forms.Label lblInfo;
         private System.Windows.Forms.TextBox txtPrice;

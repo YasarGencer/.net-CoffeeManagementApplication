@@ -38,10 +38,21 @@ namespace CoffeeManagement.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Database1.mdf" +
-            ";Integrated Security=True")]
+            ";Integrated Security=True; TrustServerCertificate=True ")]
         public string Database1ConnectionString {
             get {
                 return ((string)(this["Database1ConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Cafebase.mdf;" +
+            "Integrated Security=True")]
+        public string CafebaseConnectionString {
+            get {
+                return ((string)(this["CafebaseConnectionString"]));
             }
         }
     }

@@ -22,5 +22,5 @@ D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagement\CoffeeManagemen
 D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagement\CoffeeManagement\obj\Debug\CoffeeManagement.pdb
 D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagement\CoffeeManagement\obj\Debug\CoffeeManagement.LogIn.resources
 D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagement\CoffeeManagement\obj\Debug\CoffeeManagement.UserPage.resources
-D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagement\CoffeeManagement\bin\Debug\Database1.mdf
-D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagement\CoffeeManagement\bin\Debug\Database1_log.ldf
+D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagement\CoffeeManagement\bin\Debug\Cafebase.mdf
+D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagement\CoffeeManagement\bin\Debug\Cafebase_log.ldf

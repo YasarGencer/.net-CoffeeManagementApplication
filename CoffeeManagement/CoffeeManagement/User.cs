@@ -13,7 +13,7 @@ namespace CoffeeManagement
         public string username { get; set; }
         public string password { get; set; }
         public static string scText =
-            "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = |DataDirectory|\\Database1.mdf; Integrated Security = True";
+            "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Cafebase.mdf;Integrated Security=True";
         #endregion
         #region CONSTRUCTORS
         public User(string username, string password)
