@@ -32,13 +32,5 @@ namespace CoffeeManagement
                 MessageBox.Show("Incorrect password or username");
         }
         #endregion
-        #region INTERACTABLES
-        //SETS PASSWORD TEXTS AS SHOWN OR HIDEN
-        private void cbPassShown_CheckedChanged(object sender, EventArgs e)
-        {
-            if (!cbPassShown.Checked) txtPass.PasswordChar = '*';
-            else txtPass.PasswordChar = '\0';
-        }
-        #endregion
     }
 }

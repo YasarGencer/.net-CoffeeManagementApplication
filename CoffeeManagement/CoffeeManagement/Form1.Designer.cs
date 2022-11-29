@@ -30,185 +30,233 @@ namespace CoffeeManagement
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogIn));
-            this.lblSignInInfo = new System.Windows.Forms.Label();
-            this.pictureLogo = new System.Windows.Forms.PictureBox();
-            this.bttnSign = new System.Windows.Forms.Button();
-            this.lblLogIn = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cbPassShown = new System.Windows.Forms.CheckBox();
             this.bttnLog = new System.Windows.Forms.Button();
             this.lblPass = new System.Windows.Forms.Label();
             this.lblUser = new System.Windows.Forms.Label();
-            this.txtInfo = new System.Windows.Forms.TextBox();
             this.txtPass = new System.Windows.Forms.TextBox();
             this.txtUser = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureLogo)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.panelMenu = new System.Windows.Forms.Panel();
+            this.panelLogo = new System.Windows.Forms.Panel();
+            this.btnLogInScreen = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnSignInScreen = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.panelMenu.SuspendLayout();
+            this.panelLogo.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lblSignInInfo
-            // 
-            this.lblSignInInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblSignInInfo.AutoSize = true;
-            this.lblSignInInfo.Location = new System.Drawing.Point(218, 164);
-            this.lblSignInInfo.Name = "lblSignInInfo";
-            this.lblSignInInfo.Size = new System.Drawing.Size(145, 13);
-            this.lblSignInInfo.TabIndex = 16;
-            this.lblSignInInfo.Text = "If yoıu don\'t have an account";
-            // 
-            // pictureLogo
-            // 
-            this.pictureLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureLogo.ErrorImage = null;
-            this.pictureLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureLogo.Image")));
-            this.pictureLogo.InitialImage = null;
-            this.pictureLogo.Location = new System.Drawing.Point(230, 16);
-            this.pictureLogo.Name = "pictureLogo";
-            this.pictureLogo.Size = new System.Drawing.Size(123, 124);
-            this.pictureLogo.TabIndex = 17;
-            this.pictureLogo.TabStop = false;
-            this.pictureLogo.WaitOnLoad = true;
-            // 
-            // bttnSign
-            // 
-            this.bttnSign.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bttnSign.Location = new System.Drawing.Point(206, 180);
-            this.bttnSign.Name = "bttnSign";
-            this.bttnSign.Size = new System.Drawing.Size(168, 23);
-            this.bttnSign.TabIndex = 15;
-            this.bttnSign.Text = "Sign in";
-            this.bttnSign.UseVisualStyleBackColor = true;
-            this.bttnSign.Click += new System.EventHandler(this.bttnSign_Click);
-            // 
-            // lblLogIn
-            // 
-            this.lblLogIn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblLogIn.AutoSize = true;
-            this.lblLogIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblLogIn.Location = new System.Drawing.Point(57, 2);
-            this.lblLogIn.Margin = new System.Windows.Forms.Padding(0);
-            this.lblLogIn.Name = "lblLogIn";
-            this.lblLogIn.Size = new System.Drawing.Size(60, 25);
-            this.lblLogIn.TabIndex = 13;
-            this.lblLogIn.Text = "Login";
-            this.lblLogIn.UseMnemonic = false;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBox1.Controls.Add(this.cbPassShown);
-            this.groupBox1.Controls.Add(this.bttnLog);
-            this.groupBox1.Controls.Add(this.lblPass);
-            this.groupBox1.Controls.Add(this.lblUser);
-            this.groupBox1.Controls.Add(this.txtInfo);
-            this.groupBox1.Controls.Add(this.txtPass);
-            this.groupBox1.Controls.Add(this.txtUser);
-            this.groupBox1.Location = new System.Drawing.Point(4, 30);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(192, 175);
-            this.groupBox1.TabIndex = 14;
-            this.groupBox1.TabStop = false;
-            // 
-            // cbPassShown
-            // 
-            this.cbPassShown.AutoSize = true;
-            this.cbPassShown.Location = new System.Drawing.Point(69, 55);
-            this.cbPassShown.Name = "cbPassShown";
-            this.cbPassShown.Size = new System.Drawing.Size(105, 17);
-            this.cbPassShown.TabIndex = 13;
-            this.cbPassShown.Text = "PasswordShown";
-            this.cbPassShown.UseVisualStyleBackColor = true;
-            this.cbPassShown.CheckedChanged += new System.EventHandler(this.cbPassShown_CheckedChanged);
             // 
             // bttnLog
             // 
-            this.bttnLog.Location = new System.Drawing.Point(6, 120);
+            this.bttnLog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(110)))), ((int)(((byte)(131)))));
+            this.bttnLog.FlatAppearance.BorderSize = 0;
+            this.bttnLog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bttnLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.bttnLog.ForeColor = System.Drawing.Color.White;
+            this.bttnLog.Location = new System.Drawing.Point(55, 91);
             this.bttnLog.Name = "bttnLog";
-            this.bttnLog.Size = new System.Drawing.Size(168, 23);
+            this.bttnLog.Size = new System.Drawing.Size(180, 47);
             this.bttnLog.TabIndex = 4;
             this.bttnLog.Text = "Log in";
-            this.bttnLog.UseVisualStyleBackColor = true;
+            this.bttnLog.UseVisualStyleBackColor = false;
             this.bttnLog.Click += new System.EventHandler(this.bttnLog_Click);
             // 
             // lblPass
             // 
             this.lblPass.AutoSize = true;
-            this.lblPass.Location = new System.Drawing.Point(0, 55);
+            this.lblPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblPass.Location = new System.Drawing.Point(8, 51);
             this.lblPass.Name = "lblPass";
-            this.lblPass.Size = new System.Drawing.Size(53, 13);
+            this.lblPass.Size = new System.Drawing.Size(78, 20);
             this.lblPass.TabIndex = 3;
             this.lblPass.Text = "Password";
             // 
             // lblUser
             // 
             this.lblUser.AutoSize = true;
-            this.lblUser.Location = new System.Drawing.Point(-3, 9);
+            this.lblUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblUser.Location = new System.Drawing.Point(6, 19);
             this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(55, 13);
-            this.lblUser.TabIndex = 2;
+            this.lblUser.Size = new System.Drawing.Size(83, 20);
+            this.lblUser.TabIndex = 1;
             this.lblUser.Text = "Username";
-            // 
-            // txtInfo
-            // 
-            this.txtInfo.Enabled = false;
-            this.txtInfo.Location = new System.Drawing.Point(0, 149);
-            this.txtInfo.Name = "txtInfo";
-            this.txtInfo.Size = new System.Drawing.Size(180, 20);
-            this.txtInfo.TabIndex = 6;
             // 
             // txtPass
             // 
-            this.txtPass.Location = new System.Drawing.Point(2, 76);
+            this.txtPass.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtPass.Location = new System.Drawing.Point(113, 51);
             this.txtPass.Name = "txtPass";
             this.txtPass.PasswordChar = '*';
-            this.txtPass.Size = new System.Drawing.Size(180, 20);
+            this.txtPass.Size = new System.Drawing.Size(180, 19);
             this.txtPass.TabIndex = 1;
             // 
             // txtUser
             // 
-            this.txtUser.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtUser.Location = new System.Drawing.Point(6, 25);
+            this.txtUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtUser.Location = new System.Drawing.Point(113, 19);
             this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(180, 20);
+            this.txtUser.Size = new System.Drawing.Size(180, 19);
             this.txtUser.TabIndex = 0;
+            // 
+            // panelMenu
+            // 
+            this.panelMenu.AccessibleRole = System.Windows.Forms.AccessibleRole.Sound;
+            this.panelMenu.AutoScroll = true;
+            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(211)))), ((int)(((byte)(195)))));
+            this.panelMenu.Controls.Add(this.btnSignInScreen);
+            this.panelMenu.Controls.Add(this.btnLogInScreen);
+            this.panelMenu.Controls.Add(this.panelLogo);
+            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelMenu.Location = new System.Drawing.Point(0, 0);
+            this.panelMenu.MinimumSize = new System.Drawing.Size(200, 212);
+            this.panelMenu.Name = "panelMenu";
+            this.panelMenu.Size = new System.Drawing.Size(200, 212);
+            this.panelMenu.TabIndex = 1;
+            // 
+            // panelLogo
+            // 
+            this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(184)))), ((int)(((byte)(168)))));
+            this.panelLogo.Controls.Add(this.pictureBox2);
+            this.panelLogo.Controls.Add(this.pictureBox1);
+            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelLogo.MinimumSize = new System.Drawing.Size(200, 70);
+            this.panelLogo.Name = "panelLogo";
+            this.panelLogo.Size = new System.Drawing.Size(200, 70);
+            this.panelLogo.TabIndex = 1;
+            // 
+            // btnLogInScreen
+            // 
+            this.btnLogInScreen.AutoSize = true;
+            this.btnLogInScreen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(110)))), ((int)(((byte)(131)))));
+            this.btnLogInScreen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnLogInScreen.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnLogInScreen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogInScreen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnLogInScreen.ForeColor = System.Drawing.Color.White;
+            this.btnLogInScreen.Location = new System.Drawing.Point(0, 70);
+            this.btnLogInScreen.MaximumSize = new System.Drawing.Size(200, 140);
+            this.btnLogInScreen.MinimumSize = new System.Drawing.Size(200, 70);
+            this.btnLogInScreen.Name = "btnLogInScreen";
+            this.btnLogInScreen.Size = new System.Drawing.Size(200, 70);
+            this.btnLogInScreen.TabIndex = 2;
+            this.btnLogInScreen.Text = "LOG IN";
+            this.btnLogInScreen.UseVisualStyleBackColor = false;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(211)))), ((int)(((byte)(195)))));
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(200, 0);
+            this.panel1.MinimumSize = new System.Drawing.Size(235, 70);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(305, 70);
+            this.panel1.TabIndex = 17;
+            // 
+            // panel2
+            // 
+            this.panel2.AutoSize = true;
+            this.panel2.Controls.Add(this.bttnLog);
+            this.panel2.Controls.Add(this.txtPass);
+            this.panel2.Controls.Add(this.lblPass);
+            this.panel2.Controls.Add(this.lblUser);
+            this.panel2.Controls.Add(this.txtUser);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel2.Location = new System.Drawing.Point(200, 70);
+            this.panel2.MinimumSize = new System.Drawing.Size(305, 141);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(305, 141);
+            this.panel2.TabIndex = 18;
+            // 
+            // btnSignInScreen
+            // 
+            this.btnSignInScreen.AutoSize = true;
+            this.btnSignInScreen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(110)))), ((int)(((byte)(131)))));
+            this.btnSignInScreen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnSignInScreen.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSignInScreen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSignInScreen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnSignInScreen.ForeColor = System.Drawing.Color.White;
+            this.btnSignInScreen.Location = new System.Drawing.Point(0, 140);
+            this.btnSignInScreen.MaximumSize = new System.Drawing.Size(200, 140);
+            this.btnSignInScreen.MinimumSize = new System.Drawing.Size(200, 70);
+            this.btnSignInScreen.Name = "btnSignInScreen";
+            this.btnSignInScreen.Size = new System.Drawing.Size(200, 70);
+            this.btnSignInScreen.TabIndex = 3;
+            this.btnSignInScreen.Text = "SIGN IN";
+            this.btnSignInScreen.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.ErrorImage")));
+            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(200, 70);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox2.Image = global::CoffeeManagement.Properties.Resources.YG;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(200, 70);
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
             // 
             // LogIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(379, 213);
-            this.Controls.Add(this.lblSignInInfo);
-            this.Controls.Add(this.pictureLogo);
-            this.Controls.Add(this.bttnSign);
-            this.Controls.Add(this.lblLogIn);
-            this.Controls.Add(this.groupBox1);
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(237)))), ((int)(((byte)(227)))));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClientSize = new System.Drawing.Size(505, 211);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(521, 250);
+            this.MinimumSize = new System.Drawing.Size(521, 250);
             this.Name = "LogIn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Coffee Management LogIn Page by YG";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureLogo)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.panelMenu.ResumeLayout(false);
+            this.panelMenu.PerformLayout();
+            this.panelLogo.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblSignInInfo;
-        private System.Windows.Forms.PictureBox pictureLogo;
-        private System.Windows.Forms.Button bttnSign;
-        private System.Windows.Forms.Label lblLogIn;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.CheckBox cbPassShown;
         private System.Windows.Forms.Button bttnLog;
         private System.Windows.Forms.Label lblPass;
         private System.Windows.Forms.Label lblUser;
-        private System.Windows.Forms.TextBox txtInfo;
         private System.Windows.Forms.TextBox txtPass;
         private System.Windows.Forms.TextBox txtUser;
+        private System.Windows.Forms.Panel panelMenu;
+        private System.Windows.Forms.Panel panelLogo;
+        private System.Windows.Forms.Button btnLogInScreen;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btnSignInScreen;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
