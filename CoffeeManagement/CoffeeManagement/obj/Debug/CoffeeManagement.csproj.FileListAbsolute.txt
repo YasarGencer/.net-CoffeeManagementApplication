@@ -11,7 +11,6 @@ C:\Users\gncry\source\repos\CoffeeManagement\CoffeeManagement\obj\Debug\CoffeeMa
 C:\Users\gncry\source\repos\CoffeeManagement\CoffeeManagement\obj\Debug\CoffeeManagement.pdb
 D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagement\CoffeeManagement\obj\Debug\CoffeeManagement.AdminPage.resources
 D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagement\CoffeeManagement\obj\Debug\CoffeeManagement.Properties.Resources.resources
-D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagement\CoffeeManagement\obj\Debug\CoffeeManagement.SignInPage.resources
 D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagement\CoffeeManagement\obj\Debug\CoffeeManagement.csproj.GenerateResource.cache
 D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagement\CoffeeManagement\obj\Debug\CoffeeManagement.csproj.CoreCompileInputs.cache
 D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagement\CoffeeManagement\obj\Debug\CoffeeManagement.LogIn.resources
