@@ -21,6 +21,7 @@ namespace CoffeeManagement
             PullData(); txtTableCount.Text = Item.GetTableCount();
         }
         private void AdminPage_FormClosed(object sender, FormClosedEventArgs e) => Application.Exit();
+
         #region BUTTONS
         private void bttnUserPage_Click(object sender, EventArgs e)
         {
@@ -98,6 +99,26 @@ namespace CoffeeManagement
         private void txtTableCount_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void dgwItemTable_CellContentClick(object sender, DataGridViewCellEventArgs e) {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e) {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e) {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e) {
+
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e) {
+
         }
     }
 }
