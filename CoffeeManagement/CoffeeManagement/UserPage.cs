@@ -221,6 +221,10 @@ namespace CoffeeManagement
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
 
+        private void dgwContentTable_CellContentClick(object sender, DataGridViewCellEventArgs e) {
+
+        }
+
         private void SaveInfo(float value)
         {
             SqlConnection sc = new SqlConnection(User.scText);

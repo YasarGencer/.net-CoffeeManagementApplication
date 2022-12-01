@@ -13,6 +13,7 @@ namespace CoffeeManagement
 {
     public partial class LogIn : Form
     {
+        CafeManagerForm cafe;
         public enum State {
             LOGIN,
             SIGNIN
@@ -22,7 +23,7 @@ namespace CoffeeManagement
             InitializeComponent();
             panelConfPass.Width = 0;
             ChangeState(currentState);
-            new CafeManagerForm().Show();
+            cafe = new CafeManagerForm();
         }
         #region BUTTONS
         private void bttnApply_Click(object sender, EventArgs e) {
@@ -55,8 +56,9 @@ namespace CoffeeManagement
                 return;
             }
             //ERROR CHECHKING
-            if (writenUser.username == "admin") new AdminPage().Show();
-            else new UserPage().Show();
+            if (writenUser.username == "admin")
+                cafe.SetAdmin();
+            cafe.Show();
             MessageBox.Show("Log in succsessfull");
             this.Hide();
         }

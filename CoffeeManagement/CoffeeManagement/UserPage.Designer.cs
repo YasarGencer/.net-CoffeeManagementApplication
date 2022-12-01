@@ -128,6 +128,7 @@ namespace CoffeeManagement
             this.dgwContentTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgwContentTable.Size = new System.Drawing.Size(347, 517);
             this.dgwContentTable.TabIndex = 12;
+            this.dgwContentTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwContentTable_CellContentClick);
             this.dgwContentTable.SelectionChanged += new System.EventHandler(this.dgwContentTable_SelectionChanged);
             // 
             // panel2
