@@ -9,12 +9,10 @@ C:\Users\gncry\source\repos\CoffeeManagement\CoffeeManagement\obj\Debug\CoffeeMa
 C:\Users\gncry\source\repos\CoffeeManagement\CoffeeManagement\obj\Debug\CoffeeManagement.csproj.CoreCompileInputs.cache
 C:\Users\gncry\source\repos\CoffeeManagement\CoffeeManagement\obj\Debug\CoffeeManagement.exe
 C:\Users\gncry\source\repos\CoffeeManagement\CoffeeManagement\obj\Debug\CoffeeManagement.pdb
-D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagement\CoffeeManagement\obj\Debug\CoffeeManagement.AdminPage.resources
 D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagement\CoffeeManagement\obj\Debug\CoffeeManagement.Properties.Resources.resources
 D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagement\CoffeeManagement\obj\Debug\CoffeeManagement.csproj.GenerateResource.cache
 D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagement\CoffeeManagement\obj\Debug\CoffeeManagement.csproj.CoreCompileInputs.cache
 D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagement\CoffeeManagement\obj\Debug\CoffeeManagement.LogIn.resources
-D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagement\CoffeeManagement\obj\Debug\CoffeeManagement.UserPage.resources
 D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagement\CoffeeManagement\bin\Debug\Cafebase.mdf
 D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagement\CoffeeManagement\bin\Debug\Cafebase_log.ldf
 D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagement\CoffeeManagement\bin\Debug\CafeManager by YG.exe.config
@@ -22,5 +20,5 @@ D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagement\CoffeeManagemen
 D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagement\CoffeeManagement\bin\Debug\CafeManager by YG.pdb
 D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagement\CoffeeManagement\obj\Debug\CafeManager by YG.exe
 D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagement\CoffeeManagement\obj\Debug\CafeManager by YG.pdb
-D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagement\CoffeeManagement\obj\Debug\CoffeeManagement.csproj.AssemblyReference.cache
 D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagement\CoffeeManagement\obj\Debug\CoffeeManagement.CafeManagerForm.resources
+D:\GitHub\Repo\.net-CoffeeManagementApplication\CoffeeManagement\CoffeeManagement\obj\Debug\CoffeeManagement.csproj.AssemblyReference.cache

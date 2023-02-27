@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 
 namespace CoffeeManagement {
     public partial class CafeManagerForm : Form {
-
+        User user;
         Item item = new Item();
         bool isAdmin = false;
         public CafeManagerForm() {
             InitializeComponent();
         }
+        public void SetUser(User user) => this.user = user;
         public void SetAdmin() => isAdmin = true;
         public void SetHeader(string value) => lblHeader.Text = value;
         private void FormClose(object sender, FormClosedEventArgs e) => Application.Exit();
@@ -147,6 +148,9 @@ namespace CoffeeManagement {
             da.Fill(dt);
             admDgwItemTable.DataSource = dt;
             sc.Close();
+            admDgwItemTable.Columns[0].HeaderText = "ITEM ID";
+            admDgwItemTable.Columns[1].HeaderText = "ITEM NAME";
+            admDgwItemTable.Columns[2].HeaderText = "ITEM PRICE";
         }
         #endregion
         //----------------------------------------------------------------\\
@@ -164,7 +168,6 @@ namespace CoffeeManagement {
                 PullDataContent();
             }
         }
-
         private void userBttnRemove_Click(object sender, EventArgs e) {
             if (userDgwContentTable.SelectedRows.Count > 0) {
                 if (int.Parse(userDgwContentTable.SelectedRows[0].Cells[2].Value.ToString()) <= 0)
@@ -182,7 +185,6 @@ namespace CoffeeManagement {
                 PullDataContent();
             }
         }
-
         private void userBttnTransfer_Click(object sender, EventArgs e) {
             if(userDgwContentTable.RowCount > 0) {
                 //CREATE AN ITEM
@@ -218,7 +220,6 @@ namespace CoffeeManagement {
                 PullPrice();
             }
         }
-
         private void userBttnRemove2_Click(object sender, EventArgs e) {
             if (userDgwPayementTable.SelectedRows.Count > 0) {
                 //CREATE AN ITEM
@@ -238,13 +239,11 @@ namespace CoffeeManagement {
                 PullDataContent();
             }
         }
-
         private void userPay_Click(object sender, EventArgs e) {
             userDgwPayementTable.Rows.Clear();
             SaveInfo(int.Parse(userTxtBill.Text));
             PullPrice();
         }
-
         private void userBttnPayAll_Click(object sender, EventArgs e) {
             string tableName = "table" + tableId;
             Item.DeleteAllTable(tableName);
@@ -271,7 +270,6 @@ namespace CoffeeManagement {
         #endregion
         #region USER DATA
         public void PullDataItem() {
-            userDgwTableTable.Rows.Clear();
             SqlConnection sc = new SqlConnection(User.scText);
             string query = "select * from ItemTable order by itemId";
             sc.Open();
@@ -281,6 +279,9 @@ namespace CoffeeManagement {
             da.Fill(dt);
             userDgwItemTable.DataSource = dt;
             sc.Close();
+            userDgwItemTable.Columns[0].HeaderText = "ITEM ID";
+            userDgwItemTable.Columns[1].HeaderText = "ITEM NAME";
+            userDgwItemTable.Columns[2].HeaderText = "ITEM PRICE";
         }
         public void PullDataTable() {
             SqlConnection sc = new SqlConnection(User.scText);
@@ -307,6 +308,9 @@ namespace CoffeeManagement {
             userDgwContentTable.DataSource = dt;
             sc.Close();
             PullPrice();
+            userDgwContentTable.Columns[0].HeaderText = "ITEM ID";
+            userDgwContentTable.Columns[1].HeaderText = "ITEM NAME";
+            userDgwContentTable.Columns[2].HeaderText = "ITEM PRICE";
         }
         public void PullPrice() {
             int price = 0, price2 = 0;
